@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from app.routers import parts
+from app.routers import compatibility, parts
+
 
 app = FastAPI(
     title="PC Auto Builder API",
@@ -8,8 +9,9 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# parts.py의 API를 현재 서버에 등록
+
 app.include_router(parts.router)
+app.include_router(compatibility.router)
 
 
 @app.get("/")
