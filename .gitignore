@@ -1,0 +1,30 @@
+# 비밀번호와 API 키
+.env
+.env.local
+frontend/.env.local
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+backend/.venv/
+
+# Node.js
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# 편집기
+.vscode/
+.idea/
+
+# 운영체제
+Thumbs.db
+.DS_Store
+
+# 로그
+*.log
