@@ -28,3 +28,18 @@ Thumbs.db
 
 # 로그
 *.log
+backend/pc_parts.db
+
+backend/.env
+
+backend/.venv/
+backend/.env
+backend/pc_parts.db
+**/__pycache__/
+*.pyc
+
+backend/.venv/
+backend/.env
+backend/pc_parts.db
+**/__pycache__/
+*.pyc

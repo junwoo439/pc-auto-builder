@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>부품 관리자</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f8;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 24px;
+            text-align: center;
+            background: #111827;
+            color: white;
+        }
+
+        main {
+            width: min(1200px, 94%);
+            margin: 25px auto;
+        }
+
+        .card {
+            margin-bottom: 22px;
+            padding: 22px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 130px;
+            font-family: monospace;
+        }
+
+        .wide {
+            grid-column: 1 / -1;
+        }
+
+        button {
+            padding: 11px 17px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            background: #dc2626;
+        }
+
+        .cancel-button {
+            background: #6b7280;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+        }
+
+        th {
+            background: #f9fafb;
+        }
+
+        .price {
+            white-space: nowrap;
+        }
+
+        nav {
+            margin-bottom: 18px;
+        }
+
+        nav a {
+            margin-right: 15px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        #form-title {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>PC 부품 관리자</h1>
+        <p>부품 데이터 추가·수정·삭제</p>
+    </header>
+
+    <main>
+        <nav>
+            <a href="/app">직접 견적</a>
+            <a href="/recommend">자동 추천</a>
+        </nav>
+
+        <section class="card">
+            <h2 id="form-title">새 부품 추가</h2>
+
+            <div class="form-grid">
+                <div>
+                    <label for="category">종류</label>
+                    <select id="category">
+                        <option value="cpu">CPU</option>
+                        <option value="motherboard">
+                            메인보드
+                        </option>
+                        <option value="ram">RAM</option>
+                        <option value="gpu">
+                            그래픽카드
+                        </option>
+                        <option value="case">케이스</option>
+                        <option value="psu">파워</option>
+                        <option value="cooler">쿨러</option>
+                        <option value="storage">
+                            저장장치
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="manufacturer">제조사</label>
+                    <input id="manufacturer">
+                </div>
+
+                <div>
+                    <label for="model-name">제품명</label>
+                    <input id="model-name">
+                </div>
+
+                <div>
+                    <label for="price">가격</label>
+                    <input
+                        id="price"
+                        type="number"
+                        min="0"
+                    >
+                </div>
+
+                <div class="wide">
+                    <label for="specifications">
+                        상세 규격(JSON)
+                    </label>
+
+                    <textarea id="specifications">{
+  "example": "value"
+}</textarea>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="save-button">
+                    저장
+                </button>
+
+                <button
+                    id="cancel-button"
+                    class="cancel-button"
+                    hidden
+                >
+                    수정 취소
+                </button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>등록된 부품</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>종류</th>
+                            <th>제조사</th>
+                            <th>제품명</th>
+                            <th>가격</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="parts-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let editingId = null;
+        let cachedParts = [];
+
+        const category =
+            document.getElementById("category");
+
+        const manufacturer =
+            document.getElementById("manufacturer");
+
+        const modelName =
+            document.getElementById("model-name");
+
+        const price =
+            document.getElementById("price");
+
+        const specifications =
+            document.getElementById("specifications");
+
+        const saveButton =
+            document.getElementById("save-button");
+
+        const cancelButton =
+            document.getElementById("cancel-button");
+
+
+        function getAdminKey() {
+            let adminKey =
+                sessionStorage.getItem("adminKey");
+
+            if (!adminKey) {
+                adminKey = prompt(
+                    "??? ?? ?????."
+                );
+
+                if (adminKey) {
+                    sessionStorage.setItem(
+                        "adminKey",
+                        adminKey
+                    );
+                }
+            }
+
+            return adminKey ?? "";
+        }
+
+        function formatPrice(value) {
+            return `${value.toLocaleString("ko-KR")}원`;
+        }
+
+        async function loadParts() {
+            const response = await fetch("/parts/");
+            cachedParts = await response.json();
+
+            const body =
+                document.getElementById("parts-body");
+
+            body.innerHTML = "";
+
+            for (const part of cachedParts) {
+                const row =
+                    document.createElement("tr");
+
+                const values = [
+                    part.id,
+                    part.category,
+                    part.manufacturer,
+                    part.model_name,
+                    formatPrice(part.price)
+                ];
+
+                for (const value of values) {
+                    const cell =
+                        document.createElement("td");
+
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                }
+
+                const actionCell =
+                    document.createElement("td");
+
+                const editButton =
+                    document.createElement("button");
+
+                editButton.textContent = "수정";
+                editButton.addEventListener(
+                    "click",
+                    () => startEdit(part.id)
+                );
+
+                const deleteButton =
+                    document.createElement("button");
+
+                deleteButton.textContent = "삭제";
+                deleteButton.className =
+                    "delete-button";
+
+                deleteButton.style.marginLeft = "7px";
+
+                deleteButton.addEventListener(
+                    "click",
+                    () => removePart(part.id)
+                );
+
+                actionCell.append(
+                    editButton,
+                    deleteButton
+                );
+
+                row.appendChild(actionCell);
+                body.appendChild(row);
+            }
+        }
+
+        function resetForm() {
+            editingId = null;
+
+            category.value = "cpu";
+            manufacturer.value = "";
+            modelName.value = "";
+            price.value = "";
+
+            specifications.value = `{
+  "example": "value"
+}`;
+
+            document.getElementById(
+                "form-title"
+            ).textContent = "새 부품 추가";
+
+            saveButton.textContent = "저장";
+            cancelButton.hidden = true;
+        }
+
+        function startEdit(partId) {
+            const part = cachedParts.find(
+                item => item.id === partId
+            );
+
+            if (!part) {
+                return;
+            }
+
+            editingId = partId;
+
+            category.value = part.category;
+            manufacturer.value = part.manufacturer;
+            modelName.value = part.model_name;
+            price.value = part.price;
+
+            specifications.value =
+                JSON.stringify(
+                    part.specifications,
+                    null,
+                    2
+                );
+
+            document.getElementById(
+                "form-title"
+            ).textContent =
+                `부품 수정: ID ${partId}`;
+
+            saveButton.textContent = "수정 저장";
+            cancelButton.hidden = false;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        async function savePart() {
+            let parsedSpecifications;
+
+            try {
+                parsedSpecifications =
+                    JSON.parse(specifications.value);
+            } catch {
+                alert(
+                    "상세 규격은 올바른 JSON 형식이어야 합니다."
+                );
+                return;
+            }
+
+            const requestBody = {
+                category: category.value,
+                manufacturer:
+                    manufacturer.value.trim(),
+                model_name:
+                    modelName.value.trim(),
+                price: Number(price.value),
+                specifications:
+                    parsedSpecifications
+            };
+
+            if (
+                !requestBody.manufacturer ||
+                !requestBody.model_name ||
+                !Number.isInteger(requestBody.price) ||
+                requestBody.price < 0
+            ) {
+                alert("모든 값을 올바르게 입력해 주세요.");
+                return;
+            }
+
+            const url = editingId === null
+                ? "/parts/"
+                : `/parts/${editingId}`;
+
+            const method = editingId === null
+                ? "POST"
+                : "PUT";
+
+            const response = await fetch(
+                url,
+                {
+                    method,
+                    headers: {
+                        "Content-Type":
+                            "application/json",
+                        "X-Admin-Key":
+                            getAdminKey()
+                    },
+                    body: JSON.stringify(requestBody)
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                alert(
+                    data.detail ??
+                    "저장에 실패했습니다."
+                );
+                return;
+            }
+
+            resetForm();
+            await loadParts();
+        }
+
+        async function removePart(partId) {
+            const confirmed = confirm(
+                `ID ${partId} 부품을 삭제할까요?`
+            );
+
+            if (!confirmed) {
+                return;
+            }
+
+            const response = await fetch(
+                `/parts/${partId}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        "X-Admin-Key":
+                            getAdminKey()
+                    }
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                alert(
+                    data.detail ??
+                    "삭제에 실패했습니다."
+                );
+                return;
+            }
+
+            if (editingId === partId) {
+                resetForm();
+            }
+
+            await loadParts();
+        }
+
+        saveButton.addEventListener(
+            "click",
+            savePart
+        );
+
+        cancelButton.addEventListener(
+            "click",
+            resetForm
+        );
+
+        loadParts();
+    </script>
+</body>
+</html>
