@@ -114,66 +114,6 @@
             font-weight: bold;
         }
 
-
-        .equipment-section {
-            margin-top: 20px;
-        }
-
-        .equipment-section h3 {
-            margin: 0 0 10px;
-        }
-
-        .equipment-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .equipment-actions button {
-            width: auto;
-            padding: 9px 12px;
-            background: #475569;
-            font-size: 14px;
-        }
-
-        .equipment-grid {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(160px, 1fr));
-            gap: 10px;
-        }
-
-        .equipment-option {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 9px;
-            background: #f8fafc;
-            cursor: pointer;
-        }
-
-        .equipment-option:has(input:checked) {
-            border-color: #2563eb;
-            background: #eff6ff;
-        }
-
-        .equipment-option input {
-            width: 18px;
-            height: 18px;
-            margin: 0;
-        }
-
-        .equipment-option span {
-            font-weight: bold;
-        }
-
-        .dimension-grid.disabled {
-            opacity: 0.45;
-        }
-
         .help {
             margin: 16px 0;
             padding: 13px;
@@ -370,15 +310,14 @@
         <section class="card">
             <h2>추천 조건</h2>
 
-
             <div class="grid">
                 <div class="input-group">
-                    <label for="budget">선택 장비 총예산(원)</label>
+                    <label for="budget">총예산(원)</label>
 
                     <input
                         id="budget"
                         type="number"
-                        min="10000"
+                        min="100000"
                         step="10000"
                         value="1100000"
                     >
@@ -393,122 +332,10 @@
                         <option value="office">사무·학습용</option>
                     </select>
                 </div>
-            </div>
 
-            <div class="equipment-section">
-                <h3>추천받을 장비 선택</h3>
-
-                <div class="equipment-actions">
-                    <button
-                        id="select-core"
-                        type="button"
-                    >
-                        핵심 6개 선택
-                    </button>
-
-                    <button
-                        id="select-all-equipment"
-                        type="button"
-                    >
-                        8개 전체 선택
-                    </button>
-
-                    <button
-                        id="clear-equipment"
-                        type="button"
-                    >
-                        전체 해제
-                    </button>
-                </div>
-
-                <div class="equipment-grid">
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="cpu"
-                            checked
-                        >
-                        <span>CPU</span>
-                    </label>
-
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="motherboard"
-                            checked
-                        >
-                        <span>메인보드</span>
-                    </label>
-
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="ram"
-                            checked
-                        >
-                        <span>RAM</span>
-                    </label>
-
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="gpu"
-                            checked
-                        >
-                        <span>그래픽카드</span>
-                    </label>
-
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="case"
-                            checked
-                        >
-                        <span>케이스</span>
-                    </label>
-
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="psu"
-                            checked
-                        >
-                        <span>파워</span>
-                    </label>
-
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="storage"
-                        >
-                        <span>저장장치</span>
-                    </label>
-
-                    <label class="equipment-option">
-                        <input
-                            class="equipment-checkbox"
-                            type="checkbox"
-                            value="cooler"
-                        >
-                        <span>CPU 쿨러</span>
-                    </label>
-                </div>
-            </div>
-
-            <div
-                id="dimension-grid"
-                class="grid dimension-grid"
-            >
                 <div class="input-group">
                     <label for="max-width">
-                        케이스 최대 가로·폭(mm)
+                        최대 가로·폭(mm)
                     </label>
 
                     <input
@@ -521,7 +348,7 @@
 
                 <div class="input-group">
                     <label for="max-height">
-                        케이스 최대 세로·높이(mm)
+                        최대 세로·높이(mm)
                     </label>
 
                     <input
@@ -534,7 +361,7 @@
 
                 <div class="input-group">
                     <label for="max-depth">
-                        케이스 최대 앞뒤·깊이(mm)
+                        최대 앞뒤·깊이(mm)
                     </label>
 
                     <input
@@ -558,13 +385,13 @@
             </div>
 
             <p class="help">
-                체크한 장비만 추천 결과에 포함됩니다. 서로 연결되는 장비를
-                함께 선택하면 소켓·DDR 규격·길이·파워 용량을 검사하며,
-                연결 상대를 선택하지 않은 항목은 경고와 함께 개별 추천합니다.
+                케이스 외형 크기까지 입력 공간 안에 들어가는 제품만
+                사용합니다. 상세 규격이 없는 부품은 안전한 자동 추천에서
+                제외됩니다.
             </p>
 
             <button id="recommend-button" type="button">
-                선택 장비 호환성 검사 후 추천
+                호환성 검사 후 자동 견적 추천
             </button>
         </section>
 
@@ -880,115 +707,36 @@
             return wrapper;
         }
 
-
-        const equipmentCheckboxes = [
-            ...document.querySelectorAll(
-                ".equipment-checkbox"
-            )
-        ];
-
-        function getSelectedCategories() {
-            return equipmentCheckboxes
-                .filter(checkbox => checkbox.checked)
-                .map(checkbox => checkbox.value);
-        }
-
-        function setSelectedCategories(categories) {
-            const selected = new Set(categories);
-
-            for (const checkbox of equipmentCheckboxes) {
-                checkbox.checked = selected.has(
-                    checkbox.value
-                );
-            }
-
-            updateDimensionState();
-        }
-
-        function updateDimensionState() {
-            const caseSelected =
-                getSelectedCategories().includes(
-                    "case"
-                );
-
-            const grid =
-                document.getElementById(
-                    "dimension-grid"
-                );
-
-            grid.classList.toggle(
-                "disabled",
-                !caseSelected
-            );
-
-            for (const id of [
-                "max-width",
-                "max-height",
-                "max-depth"
-            ]) {
-                document.getElementById(
-                    id
-                ).disabled = !caseSelected;
-            }
-        }
-
         async function recommendBuild() {
             const budget = getNumber("budget");
             const purpose =
                 document.getElementById("purpose").value;
-
-            const selectedCategories =
-                getSelectedCategories();
-
-            const caseSelected =
-                selectedCategories.includes("case");
-
-            const maxWidth = (
-                caseSelected
-                    ? getNumber("max-width")
-                    : null
-            );
-
-            const maxHeight = (
-                caseSelected
-                    ? getNumber("max-height")
-                    : null
-            );
-
-            const maxDepth = (
-                caseSelected
-                    ? getNumber("max-depth")
-                    : null
-            );
-
+            const maxWidth = getNumber("max-width");
+            const maxHeight = getNumber("max-height");
+            const maxDepth = getNumber("max-depth");
             const allowUsed =
                 document.getElementById("allow-used").checked;
 
-            if (selectedCategories.length === 0) {
-                alert("추천받을 장비를 하나 이상 선택하세요.");
-                return;
-            }
+            const values = [
+                budget,
+                maxWidth,
+                maxHeight,
+                maxDepth
+            ];
 
             if (
-                !Number.isFinite(budget)
-                || budget < 10000
-            ) {
-                alert("예산은 1만 원 이상으로 입력하세요.");
-                return;
-            }
-
-            if (
-                caseSelected
-                && [maxWidth, maxHeight, maxDepth].some(
+                values.some(
                     current =>
                         !Number.isFinite(current)
                         || current <= 0
                 )
             ) {
-                alert(
-                    "케이스를 선택했으므로 최대 크기를 "
-                    + "올바르게 입력하세요."
-                );
+                alert("예산과 크기를 올바르게 입력하세요.");
+                return;
+            }
+
+            if (budget < 100000) {
+                alert("예산은 10만 원 이상이어야 합니다.");
                 return;
             }
 
@@ -1006,8 +754,6 @@
                         body: JSON.stringify({
                             budget,
                             purpose,
-                            selected_categories:
-                                selectedCategories,
                             max_width_mm: maxWidth,
                             max_height_mm: maxHeight,
                             max_depth_mm: maxDepth,
@@ -1117,50 +863,27 @@
                     `총가격: ${formatPrice(data.total_price)}`
                 );
 
-                const summaryLines = [
+                const details = document.createElement("div");
+                details.textContent = [
                     `남은 예산: ${formatPrice(data.remaining_budget)}`,
                     (
-                        "선택 장비: "
-                        + data.selected_categories
-                            .map(
-                                category =>
-                                    categoryNames[category]
-                                    ?? category
-                            )
-                            .join(", ")
-                    )
-                ];
-
-                if (
-                    data.selected_categories.includes("case")
-                ) {
-                    summaryLines.push(
                         "입력 공간: "
                         + `${data.requested_dimensions.width_mm} × `
                         + `${data.requested_dimensions.height_mm} × `
                         + `${data.requested_dimensions.depth_mm}mm`
-                    );
-
-                    summaryLines.push(
+                    ),
+                    (
                         "케이스 크기: "
                         + `${caseSize.width_mm} × `
                         + `${caseSize.height_mm} × `
                         + `${caseSize.depth_mm}mm`
-                    );
-                }
-
-                if (
-                    data.selected_categories.includes("psu")
-                ) {
-                    summaryLines.push(
+                    ),
+                    (
                         "파워: "
                         + `${buildSummary.psu_wattage ?? "?"}W `
                         + `(필요 ${buildSummary.required_psu_wattage ?? "?"}W)`
-                    );
-                }
-
-                const details = document.createElement("div");
-                details.textContent = summaryLines.join("\n");
+                    )
+                ].join("\n");
                 details.style.whiteSpace = "pre-line";
                 details.style.marginTop = "10px";
 
@@ -1190,56 +913,9 @@
             } finally {
                 button.disabled = false;
                 button.textContent =
-                    "선택 장비 호환성 검사 후 추천";
+                    "호환성 검사 후 자동 견적 추천";
             }
         }
-
-
-        document.getElementById(
-            "select-core"
-        ).addEventListener(
-            "click",
-            () => setSelectedCategories([
-                "cpu",
-                "motherboard",
-                "ram",
-                "gpu",
-                "case",
-                "psu"
-            ])
-        );
-
-        document.getElementById(
-            "select-all-equipment"
-        ).addEventListener(
-            "click",
-            () => setSelectedCategories([
-                "cpu",
-                "motherboard",
-                "ram",
-                "gpu",
-                "case",
-                "psu",
-                "storage",
-                "cooler"
-            ])
-        );
-
-        document.getElementById(
-            "clear-equipment"
-        ).addEventListener(
-            "click",
-            () => setSelectedCategories([])
-        );
-
-        for (const checkbox of equipmentCheckboxes) {
-            checkbox.addEventListener(
-                "change",
-                updateDimensionState
-            );
-        }
-
-        updateDimensionState();
 
         button.addEventListener(
             "click",

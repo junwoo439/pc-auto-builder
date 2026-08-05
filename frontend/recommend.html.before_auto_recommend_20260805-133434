@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PC 자동 견적 추천</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f8;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 28px;
+            text-align: center;
+            background: #111827;
+            color: white;
+        }
+
+        main {
+            width: min(900px, 92%);
+            margin: 30px auto;
+        }
+
+        nav {
+            margin-bottom: 18px;
+        }
+
+        nav a {
+            margin-right: 15px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .card {
+            padding: 24px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .input-group {
+            margin-bottom: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .help {
+            margin: 8px 0 20px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #9ca3af;
+        }
+
+        #result {
+            display: none;
+            margin-top: 22px;
+        }
+
+        .part {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .price {
+            color: #2563eb;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .summary {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 9px;
+            background: #eff6ff;
+            line-height: 1.8;
+        }
+
+        .error {
+            color: #b91c1c;
+            font-weight: bold;
+        }
+
+        .dimensions-title {
+            grid-column: 1 / -1;
+            margin: 10px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>PC 자동 견적 추천</h1>
+        <p>예산, 용도, 설치 공간에 맞는 PC를 추천합니다.</p>
+    </header>
+
+    <main>
+        <nav>
+            <a href="/app">직접 견적</a>
+            <a href="/admin">부품 관리</a>
+        </nav>
+
+        <section class="card">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="budget">예산</label>
+
+                    <input
+                        id="budget"
+                        type="number"
+                        min="100000"
+                        step="10000"
+                        value="1100000"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="purpose">사용 용도</label>
+
+                    <select id="purpose">
+                        <option value="gaming">게임용</option>
+                        <option value="balanced">균형형</option>
+                        <option value="office">사무·학습용</option>
+                    </select>
+                </div>
+
+                <h3 class="dimensions-title">
+                    설치 가능한 본체 최대 크기
+                </h3>
+
+                <div class="input-group">
+                    <label for="max-width">
+                        최대 가로·폭(mm)
+                    </label>
+
+                    <input
+                        id="max-width"
+                        type="number"
+                        min="1"
+                        value="230"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="max-height">
+                        최대 세로·높이(mm)
+                    </label>
+
+                    <input
+                        id="max-height"
+                        type="number"
+                        min="1"
+                        value="450"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="max-depth">
+                        최대 앞뒤 길이·깊이(mm)
+                    </label>
+
+                    <input
+                        id="max-depth"
+                        type="number"
+                        min="1"
+                        value="450"
+                    >
+                </div>
+            </div>
+
+            <p class="help">
+                책상이나 선반 내부 공간보다 조금 작게 입력하는 것이
+                좋습니다. 환기 공간은 별도로 남겨 두세요.
+            </p>
+
+            <button id="recommend-button" type="button">
+                크기에 맞는 자동 견적 추천
+            </button>
+        </section>
+
+        <section id="result" class="card">
+            <h2>추천 결과</h2>
+
+            <p id="message"></p>
+
+            <div id="parts"></div>
+
+            <div
+                id="summary"
+                class="summary"
+            ></div>
+        </section>
+    </main>
+
+    <script>
+        const button =
+            document.getElementById("recommend-button");
+
+        const result =
+            document.getElementById("result");
+
+        const categoryNames = {
+            cpu: "CPU",
+            motherboard: "메인보드",
+            ram: "RAM",
+            gpu: "그래픽카드",
+            case: "케이스",
+            psu: "파워"
+        };
+
+        function formatPrice(price) {
+            return `${Number(price).toLocaleString("ko-KR")}원`;
+        }
+
+        function getPositiveNumber(id) {
+            return Number(
+                document.getElementById(id).value
+            );
+        }
+
+        async function recommendBuild() {
+            const budget =
+                getPositiveNumber("budget");
+
+            const purpose =
+                document.getElementById("purpose").value;
+
+            const maxWidth =
+                getPositiveNumber("max-width");
+
+            const maxHeight =
+                getPositiveNumber("max-height");
+
+            const maxDepth =
+                getPositiveNumber("max-depth");
+
+            const numbers = [
+                budget,
+                maxWidth,
+                maxHeight,
+                maxDepth
+            ];
+
+            if (
+                numbers.some(
+                    value =>
+                        !Number.isInteger(value) ||
+                        value <= 0
+                )
+            ) {
+                alert("예산과 크기를 올바르게 입력해 주세요.");
+                return;
+            }
+
+            if (budget < 100000) {
+                alert("예산은 10만 원 이상 입력해 주세요.");
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = "추천 계산 중...";
+
+            try {
+                const response = await fetch(
+                    "/recommendations/auto",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+                        body: JSON.stringify({
+                            budget,
+                            purpose,
+                            max_width_mm: maxWidth,
+                            max_height_mm: maxHeight,
+                            max_depth_mm: maxDepth
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.detail ??
+                        "추천 요청에 실패했습니다."
+                    );
+                }
+
+                result.style.display = "block";
+
+                const message =
+                    document.getElementById("message");
+
+                const partsContainer =
+                    document.getElementById("parts");
+
+                const summary =
+                    document.getElementById("summary");
+
+                message.textContent = data.message;
+                partsContainer.innerHTML = "";
+                summary.innerHTML = "";
+
+                if (!data.found) {
+                    message.className = "error";
+
+                    summary.innerHTML = `
+                        입력 공간:
+                        ${maxWidth} ×
+                        ${maxHeight} ×
+                        ${maxDepth}mm
+                    `;
+
+                    return;
+                }
+
+                message.className = "";
+
+                for (const part of data.parts) {
+                    const row =
+                        document.createElement("div");
+
+                    row.className = "part";
+
+                    const name =
+                        document.createElement("span");
+
+                    name.innerHTML = `
+                        <strong>
+                            ${categoryNames[part.category] ??
+                            part.category}
+                        </strong>
+                        <br>
+                        ${part.manufacturer}
+                        ${part.model_name}
+                    `;
+
+                    const partPrice =
+                        document.createElement("span");
+
+                    partPrice.className = "price";
+                    partPrice.textContent =
+                        formatPrice(part.price);
+
+                    const sourceUrl =
+                        part.specifications?.source_url;
+
+                    if (sourceUrl) {
+                        const sourceLink =
+                            document.createElement("a");
+
+                        sourceLink.href = sourceUrl;
+                        sourceLink.target = "_blank";
+                        sourceLink.rel =
+                            "noopener noreferrer";
+
+                        sourceLink.textContent =
+                            "?? ??? ??";
+
+                        sourceLink.style.display = "inline-block";
+                        sourceLink.style.marginTop = "6px";
+                        sourceLink.style.color = "#2563eb";
+
+                        name.append(
+                            document.createElement("br"),
+                            sourceLink
+                        );
+                    }
+
+                    row.append(name, partPrice);
+                    partsContainer.appendChild(row);
+                }
+
+                const caseSize = data.case_dimensions;
+
+                summary.innerHTML = `
+                    <strong>
+                        총가격:
+                        ${formatPrice(data.total_price)}
+                    </strong>
+                    <br>
+
+                    남은 예산:
+                    ${formatPrice(data.remaining_budget)}
+                    <br>
+
+                    입력한 최대 공간:
+                    ${data.requested_dimensions.width_mm}
+                    ×
+                    ${data.requested_dimensions.height_mm}
+                    ×
+                    ${data.requested_dimensions.depth_mm}mm
+                    <br>
+
+                    추천 케이스 크기:
+                    ${caseSize.width_mm}
+                    ×
+                    ${caseSize.height_mm}
+                    ×
+                    ${caseSize.depth_mm}mm
+                `;
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                button.disabled = false;
+                button.textContent =
+                    "크기에 맞는 자동 견적 추천";
+            }
+        }
+
+        button.addEventListener(
+            "click",
+            recommendBuild
+        );
+    </script>
+</body>
+</html>

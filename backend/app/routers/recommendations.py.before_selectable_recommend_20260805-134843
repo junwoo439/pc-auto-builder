@@ -20,24 +20,16 @@ router = APIRouter(
 Part: TypeAlias = dict[str, object]
 PartialBuild: TypeAlias = dict[str, object]
 
-CategoryName = Literal[
+REQUIRED_CATEGORIES = (
     "cpu",
     "motherboard",
     "ram",
-    "gpu",
     "case",
     "psu",
-    "storage",
-    "cooler",
-]
+)
 
-ALL_CATEGORIES: tuple[CategoryName, ...] = (
-    "cpu",
-    "motherboard",
-    "ram",
+OPTIONAL_CATEGORIES = (
     "gpu",
-    "case",
-    "psu",
     "storage",
     "cooler",
 )
@@ -46,39 +38,14 @@ BEAM_WIDTH = 900
 
 
 class RecommendationRequest(BaseModel):
-    budget: int = Field(ge=10000)
+    budget: int = Field(ge=100000)
     purpose: Literal["gaming", "balanced", "office"]
 
-    selected_categories: list[CategoryName] = Field(
-        default_factory=lambda: [
-            "cpu",
-            "motherboard",
-            "ram",
-            "gpu",
-            "case",
-            "psu",
-        ],
-        min_length=1,
-        max_length=8,
-    )
-
-    max_width_mm: float | None = Field(
-        default=None,
-        gt=0,
-    )
-    max_height_mm: float | None = Field(
-        default=None,
-        gt=0,
-    )
-    max_depth_mm: float | None = Field(
-        default=None,
-        gt=0,
-    )
+    max_width_mm: float = Field(gt=0)
+    max_height_mm: float = Field(gt=0)
+    max_depth_mm: float = Field(gt=0)
 
     allow_used: bool = False
-
-    def selected_set(self) -> set[str]:
-        return set(self.selected_categories)
 
 
 def get_specs(part: Part | None) -> dict[str, object]:
@@ -374,18 +341,6 @@ def case_fits_dimensions(
     computer_case: Part,
     request: RecommendationRequest,
 ) -> bool:
-    if "case" not in request.selected_set():
-        return True
-
-    limits = (
-        request.max_width_mm,
-        request.max_height_mm,
-        request.max_depth_mm,
-    )
-
-    if any(value is None for value in limits):
-        return False
-
     specs = get_specs(computer_case)
 
     width = number(specs.get("width_mm"))
@@ -706,16 +661,13 @@ def gpu_case_compatible(
 
 
 def required_psu_wattage(
-    cpu: Part | None,
+    cpu: Part,
     gpu: Part | None,
 ) -> int:
     gpu_requirement = gpu_recommended_psu(gpu)
 
     if gpu_requirement:
         return gpu_requirement
-
-    if cpu is None:
-        return 450
 
     cpu_requirement = cpu_power(cpu) or 100
     estimated = cpu_requirement + 180
@@ -727,7 +679,7 @@ def required_psu_wattage(
 
 
 def psu_compatible(
-    cpu: Part | None,
+    cpu: Part,
     gpu: Part | None,
     psu: Part,
 ) -> bool:
@@ -1038,7 +990,7 @@ def weighted_component_score(
         raw = gpu_score(part)
     elif category == "case" and part is not None:
         raw = case_score(part, gpu_part)
-    elif category == "psu" and part is not None:
+    elif category == "psu" and part is not None and cpu_part is not None:
         raw = psu_score(
             part,
             required_psu_wattage(
@@ -1225,81 +1177,23 @@ def ready_cooler(part: Part) -> bool:
     )
 
 
-def ready_for_request(
-    category: str,
-    part: Part,
-    request: RecommendationRequest,
-) -> bool:
-    selected = request.selected_set()
-
-    if category == "cpu":
-        return ready_cpu(part)
-
-    if category == "motherboard":
-        return ready_board(part)
-
-    if category == "ram":
-        return ready_ram(part)
-
-    if category == "gpu":
-        if "case" in selected and gpu_length(part) is None:
-            return False
-
-        if (
-            "psu" in selected
-            and not gpu_recommended_psu(part)
-        ):
-            return False
-
-        return bool(
-            get_specs(part).get("chipset")
-            or get_specs(part).get("vram_gb")
-            or model_name(part)
-        )
-
-    if category == "case":
-        specs = get_specs(part)
-
-        if (
-            number(specs.get("width_mm")) is None
-            or number(specs.get("height_mm")) is None
-            or number(specs.get("depth_mm")) is None
-        ):
-            return False
-
-        if (
-            "motherboard" in selected
-            and not case_supported_form_factors(part)
-        ):
-            return False
-
-        if (
-            "gpu" in selected
-            and case_max_gpu_length(part) is None
-        ):
-            return False
-
-        return True
-
-    if category == "psu":
-        return ready_psu(part)
-
-    if category == "storage":
-        return ready_storage(part)
-
-    if category == "cooler":
-        return ready_cooler(part)
-
-    return False
-
-
 def category_data_status(
     categories: dict[str, list[Part]],
-    request: RecommendationRequest,
 ) -> dict[str, dict[str, int]]:
+    readiness = {
+        "cpu": ready_cpu,
+        "motherboard": ready_board,
+        "ram": ready_ram,
+        "gpu": ready_gpu,
+        "case": ready_case,
+        "psu": ready_psu,
+        "storage": ready_storage,
+        "cooler": ready_cooler,
+    }
+
     result: dict[str, dict[str, int]] = {}
 
-    for category in request.selected_categories:
+    for category, checker in readiness.items():
         parts = categories.get(category, [])
 
         result[category] = {
@@ -1307,11 +1201,7 @@ def category_data_status(
             "ready": sum(
                 1
                 for part in parts
-                if ready_for_request(
-                    category,
-                    part,
-                    request,
-                )
+                if checker(part)
             ),
         }
 
@@ -1324,7 +1214,10 @@ def prepare_categories(
 ) -> dict[str, list[Part]]:
     categories = {
         category: []
-        for category in ALL_CATEGORIES
+        for category in (
+            *REQUIRED_CATEGORIES,
+            *OPTIONAL_CATEGORIES,
+        )
     }
 
     for part in all_parts:
@@ -1343,319 +1236,322 @@ def prepare_categories(
 
         categories[category].append(part)
 
+    readiness = {
+        "cpu": ready_cpu,
+        "motherboard": ready_board,
+        "ram": ready_ram,
+        "gpu": ready_gpu,
+        "case": ready_case,
+        "psu": ready_psu,
+        "storage": ready_storage,
+        "cooler": ready_cooler,
+    }
+
     return {
         category: [
             part
             for part in parts
-            if ready_for_request(
-                category,
-                part,
-                request,
-            )
+            if readiness[category](part)
         ]
         for category, parts in categories.items()
     }
-
-
-def cooler_compatible_without_case(
-    cpu: Part,
-    cooler: Part,
-) -> tuple[bool, list[str]]:
-    warnings: list[str] = []
-    socket = cpu_socket(cpu)
-    supported = cooler_supported_sockets(
-        cooler
-    )
-
-    if (
-        not socket
-        or not supported
-        or socket not in supported
-    ):
-        return False, warnings
-
-    required_power = cpu_power(cpu)
-    capacity = cooler_capacity_w(cooler)
-
-    if required_power is not None:
-        if capacity is None:
-            return False, warnings
-
-        if capacity < required_power:
-            return False, warnings
-
-    warnings.append(
-        "케이스를 선택하지 않아 쿨러 높이 또는 "
-        "라디에이터 장착 가능 여부는 검사하지 않았습니다."
-    )
-
-    return True, warnings
-
-
-def candidate_compatibility(
-    category: str,
-    part: Part,
-    partial: PartialBuild,
-    request: RecommendationRequest,
-) -> tuple[bool, list[str], list[str]]:
-    checks: list[str] = []
-    warnings: list[str] = []
-
-    cpu_value = partial.get("cpu")
-    board_value = partial.get("motherboard")
-    ram_value = partial.get("ram")
-    gpu_value = partial.get("gpu")
-    case_value = partial.get("case")
-
-    cpu = (
-        cpu_value
-        if isinstance(cpu_value, dict)
-        else None
-    )
-    board = (
-        board_value
-        if isinstance(board_value, dict)
-        else None
-    )
-    ram = (
-        ram_value
-        if isinstance(ram_value, dict)
-        else None
-    )
-    gpu = (
-        gpu_value
-        if isinstance(gpu_value, dict)
-        else None
-    )
-    computer_case = (
-        case_value
-        if isinstance(case_value, dict)
-        else None
-    )
-
-    if category == "cpu":
-        return True, checks, warnings
-
-    if category == "motherboard":
-        if cpu is not None:
-            if cpu_socket(cpu) != board_socket(part):
-                return False, checks, warnings
-
-            checks.append(
-                "CPU와 메인보드 소켓 일치: "
-                f"{cpu_socket(cpu)}"
-            )
-
-            supported_memory = cpu_memory_types(cpu)
-            board_memory = board_memory_type(part)
-
-            if (
-                supported_memory
-                and board_memory not in supported_memory
-            ):
-                return False, checks, warnings
-
-            if supported_memory:
-                checks.append(
-                    "CPU와 메인보드 메모리 규격 호환: "
-                    f"{board_memory}"
-                )
-        else:
-            warnings.append(
-                "CPU를 선택하지 않아 메인보드 소켓 "
-                "호환성은 검사하지 않았습니다."
-            )
-
-        return True, checks, warnings
-
-    if category == "ram":
-        if board is not None:
-            if (
-                board_memory_type(board)
-                != ram_memory_type(part)
-            ):
-                return False, checks, warnings
-
-            checks.append(
-                "메인보드와 RAM 규격 일치: "
-                f"{ram_memory_type(part)}"
-            )
-        else:
-            warnings.append(
-                "메인보드를 선택하지 않아 RAM 규격 "
-                "호환성은 검사하지 않았습니다."
-            )
-
-        return True, checks, warnings
-
-    if category == "gpu":
-        return True, checks, warnings
-
-    if category == "case":
-        if not case_fits_dimensions(
-            part,
-            request,
-        ):
-            return False, checks, warnings
-
-        checks.append(
-            "케이스 외형 크기가 입력한 설치 공간 이내입니다."
-        )
-
-        if board is not None:
-            if not motherboard_case_compatible(
-                board,
-                part,
-            ):
-                return False, checks, warnings
-
-            checks.append(
-                "메인보드 폼팩터와 케이스 호환: "
-                f"{board_form_factor(board)}"
-            )
-
-        if gpu is not None:
-            if not gpu_case_compatible(
-                gpu,
-                part,
-            ):
-                return False, checks, warnings
-
-            checks.append(
-                "그래픽카드 길이 호환: "
-                f"{gpu_length(gpu):g}mm ≤ "
-                f"{case_max_gpu_length(part):g}mm"
-            )
-
-        return True, checks, warnings
-
-    if category == "psu":
-        if not psu_compatible(
-            cpu,
-            gpu,
-            part,
-        ):
-            return False, checks, warnings
-
-        required = required_psu_wattage(
-            cpu,
-            gpu,
-        )
-
-        checks.append(
-            "파워 용량 충족: "
-            f"{psu_wattage(part)}W ≥ "
-            f"{required}W"
-        )
-
-        if cpu is None and gpu is None:
-            warnings.append(
-                "CPU와 그래픽카드를 선택하지 않아 "
-                "파워 필요 용량은 기본 450W 기준으로 계산했습니다."
-            )
-
-        return True, checks, warnings
-
-    if category == "storage":
-        if board is not None:
-            if not storage_compatible(
-                board,
-                part,
-            ):
-                return False, checks, warnings
-
-            checks.append(
-                "메인보드와 저장장치 연결 규격을 확인했습니다."
-            )
-        else:
-            warnings.append(
-                "메인보드를 선택하지 않아 저장장치 연결 "
-                "규격은 검사하지 않았습니다."
-            )
-
-        return True, checks, warnings
-
-    if category == "cooler":
-        if cpu is None:
-            warnings.append(
-                "CPU를 선택하지 않아 쿨러 소켓과 "
-                "냉각 용량은 검사하지 않았습니다."
-            )
-            return True, checks, warnings
-
-        if computer_case is not None:
-            compatible, cooler_warnings = (
-                cooler_compatible(
-                    cpu,
-                    computer_case,
-                    part,
-                )
-            )
-        else:
-            compatible, cooler_warnings = (
-                cooler_compatible_without_case(
-                    cpu,
-                    part,
-                )
-            )
-
-        if not compatible:
-            return False, checks, warnings
-
-        checks.extend(
-            [
-                "CPU 소켓과 쿨러 호환: "
-                f"{cpu_socket(cpu)}",
-                "CPU 발열과 쿨러 냉각 용량을 확인했습니다.",
-            ]
-        )
-        warnings.extend(cooler_warnings)
-
-        return True, checks, warnings
-
-    return True, checks, warnings
 
 
 def build_candidates(
     categories: dict[str, list[Part]],
     request: RecommendationRequest,
 ) -> list[PartialBuild]:
-    partials: list[PartialBuild] = [
-        empty_partial()
-    ]
+    partials: list[PartialBuild] = []
 
-    for category in ALL_CATEGORIES:
-        if category not in request.selected_set():
-            continue
+    for cpu in categories["cpu"]:
+        partials.append(
+            add_part(
+                empty_partial(),
+                "cpu",
+                cpu,
+                request.purpose,
+            )
+        )
 
-        options = categories.get(category, [])
+    partials = keep_best(
+        partials,
+        request,
+    )
 
-        if not options:
-            return []
+    next_partials: list[PartialBuild] = []
 
-        next_partials: list[PartialBuild] = []
+    for partial in partials:
+        cpu = partial["cpu"]
+        assert isinstance(cpu, dict)
 
-        for partial in partials:
-            for part in options:
-                compatible, checks, warnings = (
-                    candidate_compatibility(
-                        category,
-                        part,
-                        partial,
-                        request,
-                    )
+        for board in categories["motherboard"]:
+            if cpu_socket(cpu) != board_socket(board):
+                continue
+
+            supported_memory = cpu_memory_types(cpu)
+            board_memory = board_memory_type(board)
+
+            if (
+                supported_memory
+                and board_memory not in supported_memory
+            ):
+                continue
+
+            memory_check = (
+                "CPU와 메인보드 메모리 규격 호환: "
+                f"{board_memory}"
+                if supported_memory
+                else (
+                    "CPU 메모리 규격 원문이 없어 "
+                    "메인보드 규격을 기준으로 선택했습니다."
+                )
+            )
+
+            next_partials.append(
+                add_part(
+                    partial,
+                    "motherboard",
+                    board,
+                    request.purpose,
+                    checks=[
+                        "CPU와 메인보드 소켓 일치: "
+                        f"{cpu_socket(cpu)}",
+                        memory_check,
+                    ],
+                )
+            )
+
+    partials = keep_best(
+        next_partials,
+        request,
+    )
+
+    next_partials = []
+
+    for partial in partials:
+        board = partial["motherboard"]
+        assert isinstance(board, dict)
+
+        for ram in categories["ram"]:
+            if (
+                board_memory_type(board)
+                != ram_memory_type(ram)
+            ):
+                continue
+
+            next_partials.append(
+                add_part(
+                    partial,
+                    "ram",
+                    ram,
+                    request.purpose,
+                    checks=[
+                        "메인보드와 RAM 규격 일치: "
+                        f"{ram_memory_type(ram)}"
+                    ],
+                )
+            )
+
+    partials = keep_best(
+        next_partials,
+        request,
+    )
+
+    next_partials = []
+
+    for partial in partials:
+        cpu = partial["cpu"]
+        assert isinstance(cpu, dict)
+
+        gpu_options: list[Part | None]
+
+        if request.purpose == "office":
+            gpu_options = list(
+                categories["gpu"]
+            )
+
+            if has_integrated_graphics(cpu):
+                gpu_options.insert(0, None)
+        else:
+            gpu_options = list(
+                categories["gpu"]
+            )
+
+        for gpu in gpu_options:
+            warnings: list[str] = []
+            checks: list[str] = []
+
+            if gpu is None:
+                checks.append(
+                    "CPU 내장 그래픽을 사용하여 "
+                    "별도 그래픽카드를 생략했습니다."
+                )
+            else:
+                checks.append(
+                    "그래픽카드 권장 파워 정보 확인: "
+                    f"{gpu_recommended_psu(gpu)}W 이상"
                 )
 
-                if not compatible:
+            next_partials.append(
+                add_part(
+                    partial,
+                    "gpu",
+                    gpu,
+                    request.purpose,
+                    checks=checks,
+                    warnings=warnings,
+                )
+            )
+
+    partials = keep_best(
+        next_partials,
+        request,
+    )
+
+    next_partials = []
+
+    for partial in partials:
+        board = partial["motherboard"]
+        gpu_value = partial.get("gpu")
+
+        assert isinstance(board, dict)
+        gpu = (
+            gpu_value
+            if isinstance(gpu_value, dict)
+            else None
+        )
+
+        for computer_case in categories["case"]:
+            if not case_fits_dimensions(
+                computer_case,
+                request,
+            ):
+                continue
+
+            if not motherboard_case_compatible(
+                board,
+                computer_case,
+            ):
+                continue
+
+            if not gpu_case_compatible(
+                gpu,
+                computer_case,
+            ):
+                continue
+
+            checks = [
+                "메인보드 폼팩터와 케이스 호환: "
+                f"{board_form_factor(board)}",
+                "케이스 외형 크기가 입력한 설치 공간 이내입니다.",
+            ]
+
+            if gpu is not None:
+                checks.append(
+                    "그래픽카드 길이 호환: "
+                    f"{gpu_length(gpu):g}mm ≤ "
+                    f"{case_max_gpu_length(computer_case):g}mm"
+                )
+
+            next_partials.append(
+                add_part(
+                    partial,
+                    "case",
+                    computer_case,
+                    request.purpose,
+                    checks=checks,
+                )
+            )
+
+    partials = keep_best(
+        next_partials,
+        request,
+    )
+
+    next_partials = []
+
+    for partial in partials:
+        cpu = partial["cpu"]
+        gpu_value = partial.get("gpu")
+
+        assert isinstance(cpu, dict)
+        gpu = (
+            gpu_value
+            if isinstance(gpu_value, dict)
+            else None
+        )
+
+        required_wattage = required_psu_wattage(
+            cpu,
+            gpu,
+        )
+
+        for psu in categories["psu"]:
+            if not psu_compatible(
+                cpu,
+                gpu,
+                psu,
+            ):
+                continue
+
+            next_partials.append(
+                add_part(
+                    partial,
+                    "psu",
+                    psu,
+                    request.purpose,
+                    checks=[
+                        "파워 용량 충족: "
+                        f"{psu_wattage(psu)}W ≥ "
+                        f"{required_wattage}W"
+                    ],
+                )
+            )
+
+    partials = keep_best(
+        next_partials,
+        request,
+    )
+
+    if categories["storage"]:
+        next_partials = []
+
+        for partial in partials:
+            board = partial["motherboard"]
+            assert isinstance(board, dict)
+
+            for storage in categories["storage"]:
+                if not storage_compatible(
+                    board,
+                    storage,
+                ):
                     continue
+
+                warnings = []
+
+                if (
+                    not storage_is_m2(storage)
+                    and integer(
+                        get_specs(board).get(
+                            "sata_ports"
+                        )
+                    )
+                    is None
+                ):
+                    warnings.append(
+                        "메인보드 SATA 포트 수가 수집되지 않아 "
+                        "저장장치 연결 단자를 최종 확인해야 합니다."
+                    )
 
                 next_partials.append(
                     add_part(
                         partial,
-                        category,
-                        part,
+                        "storage",
+                        storage,
                         request.purpose,
-                        checks=checks,
+                        checks=[
+                            "저장장치 연결 규격을 확인했습니다."
+                        ],
                         warnings=warnings,
                     )
                 )
@@ -1665,10 +1561,71 @@ def build_candidates(
             request,
         )
 
-        if not partials:
-            return []
+    else:
+        partials = [
+            add_part(
+                partial,
+                "storage",
+                None,
+                request.purpose,
+                warnings=[
+                    "저장장치 데이터가 없어 견적에서 제외했습니다."
+                ],
+            )
+            for partial in partials
+        ]
 
-    return partials
+    next_partials = []
+
+    for partial in partials:
+        cpu = partial["cpu"]
+        computer_case = partial["case"]
+
+        assert isinstance(cpu, dict)
+        assert isinstance(computer_case, dict)
+
+        if cpu_cooler_included(cpu):
+            next_partials.append(
+                add_part(
+                    partial,
+                    "cooler",
+                    None,
+                    request.purpose,
+                    checks=[
+                        "CPU 기본 쿨러 포함 여부를 확인했습니다."
+                    ],
+                )
+            )
+
+        for cooler in categories["cooler"]:
+            compatible, warnings = cooler_compatible(
+                cpu,
+                computer_case,
+                cooler,
+            )
+
+            if not compatible:
+                continue
+
+            next_partials.append(
+                add_part(
+                    partial,
+                    "cooler",
+                    cooler,
+                    request.purpose,
+                    checks=[
+                        "CPU 소켓과 쿨러 호환: "
+                        f"{cpu_socket(cpu)}",
+                        "CPU 발열과 쿨러 냉각 용량을 확인했습니다.",
+                    ],
+                    warnings=warnings,
+                )
+            )
+
+    return keep_best(
+        next_partials,
+        request,
+    )
 
 
 def final_score(
@@ -1715,7 +1672,12 @@ def build_failure_message(
         "cooler": "쿨러",
     }
 
-    for category in request.selected_categories:
+    required = list(REQUIRED_CATEGORIES)
+
+    if request.purpose != "office":
+        required.append("gpu")
+
+    for category in required:
         status = data_status.get(
             category,
             {"total": 0, "ready": 0},
@@ -1730,21 +1692,16 @@ def build_failure_message(
     if not suggestions:
         suggestions.extend(
             [
-                "예산을 높이거나 선택한 장비 수를 줄여 다시 시도하세요.",
-                "케이스를 선택했다면 최대 설치 공간을 넓혀 보세요.",
-                "서로 연결되는 장비의 소켓·DDR 규격·길이·"
-                "파워 용량을 확인하세요.",
+                "예산을 높이거나 본체 최대 크기를 넓혀 다시 시도하세요.",
+                "CPU·메인보드 소켓, DDR 규격, GPU 길이, "
+                "파워 용량 중 호환 가능한 조합이 있는지 확인하세요.",
+                "고성능 CPU에 맞는 쿨러가 부족하면 쿨러 제품의 "
+                "상세 규격을 추가로 수집하세요.",
             ]
         )
 
-    selected_names = ", ".join(
-        labels[category]
-        for category in request.selected_categories
-    )
-
     return (
-        f"선택한 장비({selected_names})를 모두 만족하는 "
-        "검증 가능한 조합을 찾지 못했습니다.",
+        "입력한 조건을 모두 만족하는 검증 가능한 견적을 찾지 못했습니다.",
         suggestions,
     )
 
@@ -1809,13 +1766,10 @@ def build_summary(build: PartialBuild) -> dict[str, object]:
         ),
         "required_psu_wattage": (
             required_psu_wattage(
-                cpu if isinstance(cpu, dict) else None,
+                cpu,
                 gpu if isinstance(gpu, dict) else None,
             )
-            if (
-                isinstance(cpu, dict)
-                or isinstance(gpu, dict)
-            )
+            if isinstance(cpu, dict)
             else None
         ),
         "storage_capacity_gb": (
@@ -1837,63 +1791,28 @@ def build_summary(build: PartialBuild) -> dict[str, object]:
 def recommend_build(
     request: RecommendationRequest,
 ) -> dict[str, object]:
-    selected_categories = list(
-        dict.fromkeys(
-            request.selected_categories
-        )
-    )
-    request.selected_categories = (
-        selected_categories
-    )
-
-    if (
-        "case" in request.selected_set()
-        and any(
-            value is None
-            for value in (
-                request.max_width_mm,
-                request.max_height_mm,
-                request.max_depth_mm,
-            )
-        )
-    ):
-        return {
-            "found": False,
-            "message": (
-                "케이스를 추천하려면 최대 가로·높이·깊이를 "
-                "모두 입력해야 합니다."
-            ),
-            "budget": request.budget,
-            "selected_categories": selected_categories,
-            "parts": [],
-            "data_status": {},
-            "suggestions": [
-                "케이스 체크를 해제하거나 설치 공간 크기를 입력하세요."
-            ],
-        }
-
     all_parts = get_all_parts()
 
     raw_categories: dict[str, list[Part]] = {
         category: [
             part
             for part in all_parts
-            if str(
-                part.get("category", "")
-            ).lower() == category
+            if str(part.get("category", "")).lower()
+            == category
             and (
                 request.allow_used
                 or not is_used(part)
             )
         ]
-        for category in ALL_CATEGORIES
+        for category in (
+            *REQUIRED_CATEGORIES,
+            *OPTIONAL_CATEGORIES,
+        )
     }
 
     data_status = category_data_status(
-        raw_categories,
-        request,
+        raw_categories
     )
-
     categories = prepare_categories(
         all_parts,
         request,
@@ -1903,12 +1822,6 @@ def recommend_build(
         categories,
         request,
     )
-
-    requested_dimensions = {
-        "width_mm": request.max_width_mm,
-        "height_mm": request.max_height_mm,
-        "depth_mm": request.max_depth_mm,
-    }
 
     if not candidates:
         message, suggestions = (
@@ -1922,8 +1835,11 @@ def recommend_build(
             "found": False,
             "message": message,
             "budget": request.budget,
-            "selected_categories": selected_categories,
-            "requested_dimensions": requested_dimensions,
+            "requested_dimensions": {
+                "width_mm": request.max_width_mm,
+                "height_mm": request.max_height_mm,
+                "depth_mm": request.max_depth_mm,
+            },
             "parts": [],
             "data_status": data_status,
             "suggestions": suggestions,
@@ -1976,17 +1892,20 @@ def recommend_build(
     return {
         "found": True,
         "message": (
-            "선택한 장비만 대상으로 상세 규격과 호환성을 "
-            "검사해 예산에 맞는 조합을 찾았습니다."
+            "상세 규격을 기준으로 호환성을 검사한 뒤 "
+            "예산과 용도에 가장 잘 맞는 견적을 찾았습니다."
         ),
         "budget": request.budget,
         "purpose": request.purpose,
-        "selected_categories": selected_categories,
         "total_price": total_price,
         "remaining_budget": (
             request.budget - total_price
         ),
-        "requested_dimensions": requested_dimensions,
+        "requested_dimensions": {
+            "width_mm": request.max_width_mm,
+            "height_mm": request.max_height_mm,
+            "depth_mm": request.max_depth_mm,
+        },
         "case_dimensions": {
             "width_mm": case_specs.get("width_mm"),
             "height_mm": case_specs.get("height_mm"),

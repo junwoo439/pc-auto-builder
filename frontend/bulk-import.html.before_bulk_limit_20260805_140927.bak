@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -136,13 +136,6 @@
             color: #2563eb;
             word-break: break-all;
         }
-
-        .field-help {
-            margin-top: 6px;
-            color: #6b7280;
-            font-size: 13px;
-            line-height: 1.5;
-        }
     </style>
 </head>
 
@@ -166,10 +159,8 @@
         <section class="card">
             <div class="notice">
                 상품이 여러 개 나오는 공개 목록 페이지 주소를
-                입력하세요. 최대 100개 목록 페이지와 1,000개 상품까지
-                요청할 수 있습니다. 상품 수가 많을수록 수집 시간이 길어지며,
-                쿠팡·네이버 쇼핑처럼 접근을 제한하거나 자바스크립트로만
-                표시하는 사이트는 실패할 수 있습니다.
+                입력하세요. 쿠팡·네이버 쇼핑처럼 접근을 제한하거나
+                자바스크립트로만 표시하는 사이트는 실패할 수 있습니다.
             </div>
 
             <div class="row">
@@ -210,13 +201,9 @@
                         id="max-pages"
                         type="number"
                         min="1"
-                        max="100"
-                        value="20"
+                        max="50"
+                        value="10"
                     >
-
-                    <div class="field-help">
-                        입력 범위: 1~100페이지
-                    </div>
                 </div>
 
                 <div>
@@ -228,13 +215,9 @@
                         id="max-products"
                         type="number"
                         min="1"
-                        max="1000"
-                        value="500"
+                        max="300"
+                        value="100"
                     >
-
-                    <div class="field-help">
-                        입력 범위: 1~1,000개
-                    </div>
                 </div>
 
                 <div>
@@ -342,30 +325,6 @@
 
             if (!adminKey) {
                 alert("관리자 키를 입력하세요.");
-                return;
-            }
-
-            if (
-                !Number.isInteger(maxPages)
-                || maxPages < 1
-                || maxPages > 100
-            ) {
-                alert(
-                    "최대 목록 페이지는 " +
-                    "1~100 사이의 정수로 입력하세요."
-                );
-                return;
-            }
-
-            if (
-                !Number.isInteger(maxProducts)
-                || maxProducts < 1
-                || maxProducts > 1000
-            ) {
-                alert(
-                    "최대 상품 수는 " +
-                    "1~1,000 사이의 정수로 입력하세요."
-                );
                 return;
             }
 

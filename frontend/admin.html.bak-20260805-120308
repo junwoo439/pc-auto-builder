@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -439,22 +439,6 @@
                 </button>
 
                 <button
-                    id="update-selected-specs-button"
-                    type="button"
-                >
-                    선택 부품 상세 규격 갱신
-                </button>
-
-                <button
-                    id="update-all-specs-button"
-                    class="success"
-                    type="button"
-                >
-                    전체 부품 상세 규격 갱신
-                </button>
-
-
-                <button
                     id="download-all-button"
                     class="success"
                     type="button"
@@ -479,20 +463,6 @@
                     선택 부품 삭제
                 </button>
             </div>
-
-            <div
-                id="spec-update-status"
-                style="
-                    margin: 16px 0;
-                    padding: 14px;
-                    border-radius: 8px;
-                    background: #eff6ff;
-                    line-height: 1.7;
-                    white-space: pre-wrap;
-                "
-                hidden
-            ></div>
-
 
             <div class="table-wrapper">
                 <table>
@@ -1346,134 +1316,6 @@
             }
         }
 
-        function showSpecUpdateStatus(
-            message
-        ) {
-            const status =
-                document.getElementById(
-                    "spec-update-status"
-                );
-
-            status.hidden = false;
-            status.textContent = message;
-        }
-
-        async function runSpecUpdate(
-            mode
-        ) {
-            const adminKey = getAdminKey();
-
-            if (!adminKey) {
-                return;
-            }
-
-            if (
-                mode === "selected"
-                && selectedIds.size === 0
-            ) {
-                alert("갱신할 부품을 선택하세요.");
-                return;
-            }
-
-            const selectedButton =
-                document.getElementById(
-                    "update-selected-specs-button"
-                );
-
-            const allButton =
-                document.getElementById(
-                    "update-all-specs-button"
-                );
-
-            selectedButton.disabled = true;
-            allButton.disabled = true;
-
-            showSpecUpdateStatus(
-                "상세 규격을 갱신하고 있습니다.\n"
-                + "전체 갱신은 약 1~3분 걸릴 수 있습니다."
-            );
-
-            const url = (
-                mode === "selected"
-                    ? "/spec-updates/selected"
-                    : "/spec-updates/all"
-            );
-
-            const options = {
-                method: "POST",
-
-                headers: {
-                    "X-Admin-Key": adminKey
-                }
-            };
-
-            if (mode === "selected") {
-                options.headers[
-                    "Content-Type"
-                ] = "application/json";
-
-                options.body = JSON.stringify({
-                    part_ids: [
-                        ...selectedIds
-                    ]
-                });
-            }
-
-            try {
-                const response = await fetch(
-                    url,
-                    options
-                );
-
-                if (!response.ok) {
-                    throw new Error(
-                        await readError(response)
-                    );
-                }
-
-                const data = await response.json();
-
-                const errorText = (
-                    Array.isArray(data.errors)
-                    && data.errors.length > 0
-                )
-                    ? (
-                        "\n최근 오류: "
-                        + data.errors[0].message
-                    )
-                    : "";
-
-                showSpecUpdateStatus(
-                    [
-                        `전체: ${data.total}개`,
-                        `갱신 성공: ${data.updated}개`,
-                        `실패: ${data.failed}개`,
-                        (
-                            "시드 자동 저장: "
-                            + (
-                                data.seed_saved
-                                    ? "완료"
-                                    : "실패"
-                            )
-                        )
-                    ].join("\n")
-                    + errorText
-                );
-
-                await loadParts();
-
-            } catch (error) {
-                showSpecUpdateStatus(
-                    "오류: " + error.message
-                );
-
-            } finally {
-                selectedButton.disabled = false;
-                allButton.disabled = false;
-            }
-        }
-
-
         selectAll.addEventListener(
             "change",
             () => {
@@ -1543,25 +1385,6 @@
             "click",
             deleteSelectedParts
         );
-
-        document.getElementById(
-            "update-selected-specs-button"
-        ).addEventListener(
-            "click",
-            () => runSpecUpdate(
-                "selected"
-            )
-        );
-
-        document.getElementById(
-            "update-all-specs-button"
-        ).addEventListener(
-            "click",
-            () => runSpecUpdate(
-                "all"
-            )
-        );
-
 
         resetForm();
         loadParts();

@@ -7,7 +7,6 @@ from fastapi.responses import (
 )
 
 from app.routers import (
-    spec_updates,
     bulk_parts,
     backups,
     compatibility,
@@ -28,7 +27,6 @@ app = FastAPI(
 
 
 app.include_router(parts.router)
-app.include_router(spec_updates.router)
 app.include_router(bulk_parts.router)
 app.include_router(compatibility.router)
 app.include_router(recommendations.router)
