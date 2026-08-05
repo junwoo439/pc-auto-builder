@@ -1,5 +1,6 @@
 ﻿import os
 import secrets
+from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import (
@@ -20,7 +21,8 @@ from app.data.repository import (
 )
 
 
-load_dotenv()
+ENV_FILE = Path(__file__).resolve().parents[2] / ".env"
+load_dotenv(dotenv_path=ENV_FILE, override=True)
 
 
 router = APIRouter(

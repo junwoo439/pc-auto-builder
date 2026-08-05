@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -395,6 +395,31 @@
                     partPrice.className = "price";
                     partPrice.textContent =
                         formatPrice(part.price);
+
+                    const sourceUrl =
+                        part.specifications?.source_url;
+
+                    if (sourceUrl) {
+                        const sourceLink =
+                            document.createElement("a");
+
+                        sourceLink.href = sourceUrl;
+                        sourceLink.target = "_blank";
+                        sourceLink.rel =
+                            "noopener noreferrer";
+
+                        sourceLink.textContent =
+                            "?? ??? ??";
+
+                        sourceLink.style.display = "inline-block";
+                        sourceLink.style.marginTop = "6px";
+                        sourceLink.style.color = "#2563eb";
+
+                        name.append(
+                            document.createElement("br"),
+                            sourceLink
+                        );
+                    }
 
                     row.append(name, partPrice);
                     partsContainer.appendChild(row);
