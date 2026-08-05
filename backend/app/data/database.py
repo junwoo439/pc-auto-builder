@@ -1,13 +1,25 @@
 import json
+import os
 import sqlite3
 from pathlib import Path
 
 
-DATABASE_PATH = (
+_DEFAULT_DATABASE_PATH = (
     Path(__file__).resolve().parents[2]
     / "pc_parts.db"
 )
 
+DATABASE_PATH = Path(
+    os.getenv(
+        "PC_PARTS_DB_PATH",
+        str(_DEFAULT_DATABASE_PATH),
+    )
+).expanduser()
+
+DATABASE_PATH.parent.mkdir(
+    parents=True,
+    exist_ok=True,
+)
 
 INITIAL_PARTS: list[dict[str, object]] = [
     {

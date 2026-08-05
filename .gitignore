@@ -43,3 +43,14 @@ backend/.env
 backend/pc_parts.db
 **/__pycache__/
 *.pyc
+# Public deployment
+.env
+backend/.env
+backend/.venv/
+**/__pycache__/
+**/*.pyc
+backend/pc_parts.db
+*.sqlite
+*.sqlite3
+*.zip
+*.before_*
