@@ -1,11 +1,12 @@
-from typing import Literal
+﻿from typing import Literal
 
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 
 from app.routers.parts import verify_admin_key
-from app.services.bulk_importer import import_bulk_products
-from app.services.product_importer import import_from_urls
+from app.services.product_importer import (
+    import_from_urls,
+)
 
 
 router = APIRouter(
@@ -14,20 +15,17 @@ router = APIRouter(
 )
 
 
-PartCategory = Literal[
-    "cpu",
-    "motherboard",
-    "ram",
-    "gpu",
-    "case",
-    "psu",
-    "cooler",
-    "storage",
-]
-
-
 class WebImportRequest(BaseModel):
-    category: PartCategory
+    category: Literal[
+        "cpu",
+        "motherboard",
+        "ram",
+        "gpu",
+        "case",
+        "psu",
+        "cooler",
+        "storage",
+    ]
 
     urls: list[str] = Field(
         min_length=1,
@@ -37,30 +35,8 @@ class WebImportRequest(BaseModel):
     discover_links: bool = True
 
     max_products: int = Field(
-        default=20,
         ge=1,
         le=20,
-    )
-
-
-class BulkWebImportRequest(BaseModel):
-    category: PartCategory
-
-    urls: list[str] = Field(
-        min_length=1,
-        max_length=10,
-    )
-
-    max_pages: int = Field(
-        default=20,
-        ge=1,
-        le=100,
-    )
-
-    max_products: int = Field(
-        default=500,
-        ge=1,
-        le=1000,
     )
 
 
@@ -76,6 +52,39 @@ def import_web_products(
         category=request.category,
         discover_links=request.discover_links,
         max_products=request.max_products,
+    )
+from app.services.bulk_importer import (
+    import_bulk_products,
+)
+
+
+class BulkWebImportRequest(BaseModel):
+    category: Literal[
+        "cpu",
+        "motherboard",
+        "ram",
+        "gpu",
+        "case",
+        "psu",
+        "cooler",
+        "storage",
+    ]
+
+    urls: list[str] = Field(
+        min_length=1,
+        max_length=10,
+    )
+
+    max_pages: int = Field(
+        default=10,
+        ge=1,
+        le=50,
+    )
+
+    max_products: int = Field(
+        default=100,
+        ge=1,
+        le=300,
     )
 
 

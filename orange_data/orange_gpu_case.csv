@@ -1,0 +1,127 @@
+﻿pair_type,left_id,left_name,right_id,right_name,gpu_length_mm,case_max_gpu_length_mm,compatible
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,80,DAVEN D7 Mesh 세븐팬 (블랙),262.1,400.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,81,darkFlash DS500 RGB (블랙),262.1,405.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,82,잘만 N30 백사십 (블랙),262.1,430.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,83,앱코 G31 오메가포스 세븐팬 (블랙),262.1,400.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,84,3RSYS L600 Quiet (블랙),262.1,400.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,85,오쓰 SOLID FULL MESH (블랙),262.1,400.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),262.1,408.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,87,Antec FLUX PRO MESH (블랙),262.1,455.0,yes
+gpu_case,13,PALIT 지포스 RTX 5060 Ti DUAL D7 8GB 이엠텍,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),262.1,380.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,80,DAVEN D7 Mesh 세븐팬 (블랙),331.9,400.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,81,darkFlash DS500 RGB (블랙),331.9,405.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,82,잘만 N30 백사십 (블랙),331.9,430.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,83,앱코 G31 오메가포스 세븐팬 (블랙),331.9,400.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,84,3RSYS L600 Quiet (블랙),331.9,400.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,85,오쓰 SOLID FULL MESH (블랙),331.9,400.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),331.9,408.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,87,Antec FLUX PRO MESH (블랙),331.9,455.0,yes
+gpu_case,14,PALIT 지포스 RTX 5070 Ti GAMINGPRO-S D7 16GB 이엠텍,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),331.9,380.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,80,DAVEN D7 Mesh 세븐팬 (블랙),227.0,400.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,81,darkFlash DS500 RGB (블랙),227.0,405.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,82,잘만 N30 백사십 (블랙),227.0,430.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,83,앱코 G31 오메가포스 세븐팬 (블랙),227.0,400.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,84,3RSYS L600 Quiet (블랙),227.0,400.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,85,오쓰 SOLID FULL MESH (블랙),227.0,400.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),227.0,408.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,87,Antec FLUX PRO MESH (블랙),227.0,455.0,yes
+gpu_case,15,MSI 지포스 RTX 5060 Ti 벤투스 2X OC 플러스 D7 8GB,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),227.0,380.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,80,DAVEN D7 Mesh 세븐팬 (블랙),360.0,400.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,81,darkFlash DS500 RGB (블랙),360.0,405.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,82,잘만 N30 백사십 (블랙),360.0,430.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,83,앱코 G31 오메가포스 세븐팬 (블랙),360.0,400.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,84,3RSYS L600 Quiet (블랙),360.0,400.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,85,오쓰 SOLID FULL MESH (블랙),360.0,400.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),360.0,408.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,87,Antec FLUX PRO MESH (블랙),360.0,455.0,yes
+gpu_case,16,GIGABYTE AORUS 지포스 RTX 5080 MASTER D7 16GB 제이씨현,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),360.0,380.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,80,DAVEN D7 Mesh 세븐팬 (블랙),331.9,400.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,81,darkFlash DS500 RGB (블랙),331.9,405.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,82,잘만 N30 백사십 (블랙),331.9,430.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,83,앱코 G31 오메가포스 세븐팬 (블랙),331.9,400.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,84,3RSYS L600 Quiet (블랙),331.9,400.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,85,오쓰 SOLID FULL MESH (블랙),331.9,400.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),331.9,408.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,87,Antec FLUX PRO MESH (블랙),331.9,455.0,yes
+gpu_case,17,PALIT 지포스 RTX 5080 GAMINGPRO D7 16GB 이엠텍,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),331.9,380.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,80,DAVEN D7 Mesh 세븐팬 (블랙),312.0,400.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,81,darkFlash DS500 RGB (블랙),312.0,405.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,82,잘만 N30 백사십 (블랙),312.0,430.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,83,앱코 G31 오메가포스 세븐팬 (블랙),312.0,400.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,84,3RSYS L600 Quiet (블랙),312.0,400.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,85,오쓰 SOLID FULL MESH (블랙),312.0,400.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),312.0,408.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,87,Antec FLUX PRO MESH (블랙),312.0,455.0,yes
+gpu_case,18,ASUS PRIME 라데온 RX 9070 XT OC D6 16GB 대원씨티에스,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),312.0,380.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,80,DAVEN D7 Mesh 세븐팬 (블랙),240.0,400.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,81,darkFlash DS500 RGB (블랙),240.0,405.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,82,잘만 N30 백사십 (블랙),240.0,430.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,83,앱코 G31 오메가포스 세븐팬 (블랙),240.0,400.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,84,3RSYS L600 Quiet (블랙),240.0,400.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,85,오쓰 SOLID FULL MESH (블랙),240.0,400.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),240.0,408.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,87,Antec FLUX PRO MESH (블랙),240.0,455.0,yes
+gpu_case,19,SAPPHIRE 라데온 RX 9060 XT PULSE OC D6 16GB,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),240.0,380.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,80,DAVEN D7 Mesh 세븐팬 (블랙),281.0,400.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,81,darkFlash DS500 RGB (블랙),281.0,405.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,82,잘만 N30 백사십 (블랙),281.0,430.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,83,앱코 G31 오메가포스 세븐팬 (블랙),281.0,400.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,84,3RSYS L600 Quiet (블랙),281.0,400.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,85,오쓰 SOLID FULL MESH (블랙),281.0,400.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),281.0,408.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,87,Antec FLUX PRO MESH (블랙),281.0,455.0,yes
+gpu_case,20,GIGABYTE 라데온 RX 9060 XT Gaming OC D6 16GB 피씨디렉트,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),281.0,380.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,80,DAVEN D7 Mesh 세븐팬 (블랙),249.0,400.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,81,darkFlash DS500 RGB (블랙),249.0,405.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,82,잘만 N30 백사십 (블랙),249.0,430.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,83,앱코 G31 오메가포스 세븐팬 (블랙),249.0,400.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,84,3RSYS L600 Quiet (블랙),249.0,400.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,85,오쓰 SOLID FULL MESH (블랙),249.0,400.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),249.0,408.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,87,Antec FLUX PRO MESH (블랙),249.0,455.0,yes
+gpu_case,21,ASRock 라데온 RX 9060 XT CHALLENGER OC D6 16GB 대원씨티에스,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),249.0,380.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,80,DAVEN D7 Mesh 세븐팬 (블랙),330.8,400.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,81,darkFlash DS500 RGB (블랙),330.8,405.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,82,잘만 N30 백사십 (블랙),330.8,430.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,83,앱코 G31 오메가포스 세븐팬 (블랙),330.8,400.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,84,3RSYS L600 Quiet (블랙),330.8,400.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,85,오쓰 SOLID FULL MESH (블랙),330.8,400.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),330.8,408.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,87,Antec FLUX PRO MESH (블랙),330.8,455.0,yes
+gpu_case,22,SAPPHIRE 라데온 RX 9070 XT NITRO+ OC D6 16GB,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),330.8,380.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,80,DAVEN D7 Mesh 세븐팬 (블랙),282.0,400.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,81,darkFlash DS500 RGB (블랙),282.0,405.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,82,잘만 N30 백사십 (블랙),282.0,430.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,83,앱코 G31 오메가포스 세븐팬 (블랙),282.0,400.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,84,3RSYS L600 Quiet (블랙),282.0,400.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,85,오쓰 SOLID FULL MESH (블랙),282.0,400.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),282.0,408.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,87,Antec FLUX PRO MESH (블랙),282.0,455.0,yes
+gpu_case,23,GIGABYTE 라데온 RX 7600 GAMING OC D6 8GB 제이씨현,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),282.0,380.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,80,DAVEN D7 Mesh 세븐팬 (블랙),249.0,400.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,81,darkFlash DS500 RGB (블랙),249.0,405.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,82,잘만 N30 백사십 (블랙),249.0,430.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,83,앱코 G31 오메가포스 세븐팬 (블랙),249.0,400.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,84,3RSYS L600 Quiet (블랙),249.0,400.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,85,오쓰 SOLID FULL MESH (블랙),249.0,400.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),249.0,408.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,87,Antec FLUX PRO MESH (블랙),249.0,455.0,yes
+gpu_case,24,ASRock Arc B580 CHALLENGER OC D6 12GB,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),249.0,380.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,80,DAVEN D7 Mesh 세븐팬 (블랙),267.0,400.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,81,darkFlash DS500 RGB (블랙),267.0,405.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,82,잘만 N30 백사십 (블랙),267.0,430.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,83,앱코 G31 오메가포스 세븐팬 (블랙),267.0,400.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,84,3RSYS L600 Quiet (블랙),267.0,400.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,85,오쓰 SOLID FULL MESH (블랙),267.0,400.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),267.0,408.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,87,Antec FLUX PRO MESH (블랙),267.0,455.0,yes
+gpu_case,25,인텔 Arc Pro B70 D6 32GB,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),267.0,380.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,80,DAVEN D7 Mesh 세븐팬 (블랙),197.0,400.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,81,darkFlash DS500 RGB (블랙),197.0,405.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,82,잘만 N30 백사십 (블랙),197.0,430.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,83,앱코 G31 오메가포스 세븐팬 (블랙),197.0,400.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,84,3RSYS L600 Quiet (블랙),197.0,400.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,85,오쓰 SOLID FULL MESH (블랙),197.0,400.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,86,앱코 G50 빅플로우 MESH ARGB BTF (블랙),197.0,408.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,87,Antec FLUX PRO MESH (블랙),197.0,455.0,yes
+gpu_case,172,MSI 지포스 RTX 5060 벤투스 2X OC D7 8GB,88,마이크로닉스 WIZMAX 릿지 PRO (블랙),197.0,380.0,yes

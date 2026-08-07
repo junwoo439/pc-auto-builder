@@ -1,7 +1,7 @@
 {
   "format": "pc-auto-builder-parts",
   "version": 1,
-  "exported_at": "2026-08-07T00:42:46.108431+00:00",
+  "exported_at": "2026-08-07T00:42:50.635494+00:00",
   "count": 160,
   "parts": [
     {
@@ -3219,7 +3219,7 @@
           "무게: 630g"
         ],
         "capacity_gb": 8192,
-        "storage_type": "ssd",
+        "storage_type": "HDD",
         "interface": "SATA3",
         "spec_source_url": "https://prod.danawa.com/info/?pcode=5764992&cate=1131401",
         "spec_source_name": "prod.danawa.com",
@@ -3255,7 +3255,7 @@
           "25년 5월부로 제품 이미지 변경"
         ],
         "capacity_gb": 8192,
-        "storage_type": "ssd",
+        "storage_type": "HDD",
         "interface": "SATA3",
         "spec_source_url": "https://prod.danawa.com/info/?pcode=42286460&cate=1131401",
         "spec_source_name": "prod.danawa.com",
@@ -3291,7 +3291,7 @@
           "무게: 최대 490g"
         ],
         "capacity_gb": 2048,
-        "storage_type": "ssd",
+        "storage_type": "HDD",
         "interface": "SATA3",
         "spec_source_url": "https://prod.danawa.com/info/?pcode=6545078&cate=1131401",
         "spec_source_name": "prod.danawa.com",
@@ -3325,7 +3325,7 @@
           "A/S 정보 : 2년"
         ],
         "capacity_gb": 24576,
-        "storage_type": "ssd",
+        "storage_type": "HDD",
         "interface": "SATA3",
         "spec_source_url": "https://prod.danawa.com/info/?pcode=77788166&cate=1131401",
         "spec_source_name": "prod.danawa.com",
@@ -3361,7 +3361,7 @@
           "25년 5월부로 제품 이미지 변경"
         ],
         "capacity_gb": 2048,
-        "storage_type": "ssd",
+        "storage_type": "HDD",
         "interface": "SATA3",
         "spec_source_url": "https://prod.danawa.com/info/?pcode=13522751&cate=1131401",
         "spec_source_name": "prod.danawa.com",
@@ -3396,7 +3396,7 @@
           "680g"
         ],
         "capacity_gb": 2048,
-        "storage_type": "ssd",
+        "storage_type": "HDD",
         "interface": "SATA3",
         "spec_source_url": "https://prod.danawa.com/info/?pcode=1790810&cate=1131401",
         "spec_source_name": "prod.danawa.com",
