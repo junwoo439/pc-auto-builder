@@ -1,90 +1,201 @@
-﻿import json
+import ipaddress
+import json
 import re
+import socket
+import sqlite3
 import time
 from datetime import datetime, timezone
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, urlunparse
 from urllib.robotparser import RobotFileParser
 
 import requests
 from bs4 import BeautifulSoup
 
-from app.data.database import connect_database
+from app.data.database import (
+    connect_database,
+    extract_source_url,
+    initialize_database,
+)
 
 
-USER_AGENT = "PC-Auto-Builder/1.0"
+USER_AGENT = "PC-Auto-Builder/1.1"
 REQUEST_DELAY_SECONDS = 1.0
 TIMEOUT_SECONDS = 15
+MAX_RESPONSE_BYTES = 2 * 1024 * 1024
+MAX_REDIRECTS = 5
+
+
+def _validate_public_host(hostname: str, port: int) -> None:
+    lowered = hostname.rstrip(".").casefold()
+    if lowered in {"localhost", "localhost.localdomain"}:
+        raise ValueError("로컬/내부 네트워크 주소는 수집할 수 없습니다.")
+
+    try:
+        addresses = socket.getaddrinfo(
+            hostname.encode("idna").decode("ascii"),
+            port,
+            type=socket.SOCK_STREAM,
+        )
+    except socket.gaierror as error:
+        raise ValueError("도메인 주소를 확인할 수 없습니다.") from error
+
+    if not addresses:
+        raise ValueError("도메인 주소를 확인할 수 없습니다.")
+
+    for address in addresses:
+        ip_text = address[4][0].split("%", 1)[0]
+        try:
+            ip = ipaddress.ip_address(ip_text)
+        except ValueError as error:
+            raise ValueError("서버 IP 주소를 확인할 수 없습니다.") from error
+
+        if not ip.is_global:
+            raise ValueError("로컬/사설/예약 IP 주소는 수집할 수 없습니다.")
 
 
 def normalize_url(url: str) -> str:
     normalized = url.strip()
+    parsed = urlparse(normalized)
 
-    if not normalized.startswith(("http://", "https://")):
+    if parsed.scheme.lower() not in {"http", "https"}:
         raise ValueError("http:// 또는 https://로 시작해야 합니다.")
+    if not parsed.hostname:
+        raise ValueError("도메인 주소가 없습니다.")
+    if parsed.username or parsed.password:
+        raise ValueError("사용자 정보가 포함된 URL은 허용하지 않습니다.")
 
-    return normalized
+    try:
+        port = parsed.port or (443 if parsed.scheme.lower() == "https" else 80)
+    except ValueError as error:
+        raise ValueError("URL 포트가 올바르지 않습니다.") from error
+
+    _validate_public_host(parsed.hostname, port)
+
+    return urlunparse(
+        (
+            parsed.scheme.lower(),
+            parsed.netloc,
+            parsed.path or "/",
+            parsed.params,
+            parsed.query,
+            "",
+        )
+    )
+
+
+def _download_text(
+    url: str,
+    *,
+    timeout: int,
+    headers: dict[str, str] | None = None,
+) -> tuple[int, str, str, str]:
+    session = requests.Session()
+    session.trust_env = False
+    current_url = normalize_url(url)
+    request_headers = {
+        "User-Agent": USER_AGENT,
+        "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8",
+        **(headers or {}),
+    }
+
+    try:
+        for _ in range(MAX_REDIRECTS + 1):
+            response = session.get(
+                current_url,
+                headers=request_headers,
+                timeout=timeout,
+                allow_redirects=False,
+                stream=True,
+            )
+
+            if response.is_redirect or response.is_permanent_redirect:
+                location = response.headers.get("Location")
+                response.close()
+                if not location:
+                    raise ValueError("리다이렉트 주소가 없습니다.")
+                current_url = normalize_url(urljoin(current_url, location))
+                continue
+
+            content_length = response.headers.get("Content-Length")
+            if content_length:
+                try:
+                    if int(content_length) > MAX_RESPONSE_BYTES:
+                        response.close()
+                        raise ValueError("응답 크기가 2MB 제한을 초과했습니다.")
+                except ValueError as error:
+                    if "제한" in str(error):
+                        raise
+
+            body = bytearray()
+            for chunk in response.iter_content(chunk_size=64 * 1024):
+                if not chunk:
+                    continue
+                body.extend(chunk)
+                if len(body) > MAX_RESPONSE_BYTES:
+                    response.close()
+                    raise ValueError("응답 크기가 2MB 제한을 초과했습니다.")
+
+            encoding = response.encoding or "utf-8"
+            text = bytes(body).decode(encoding, errors="replace")
+            content_type = response.headers.get("Content-Type", "")
+            status_code = response.status_code
+            response.close()
+            return status_code, text, content_type, current_url
+
+        raise ValueError("리다이렉트 횟수가 너무 많습니다.")
+    except requests.RequestException as error:
+        raise ValueError(f"웹 요청 실패: {error}") from error
+    finally:
+        session.close()
 
 
 def robots_allows(url: str) -> tuple[bool, str]:
-    parsed = urlparse(url)
-    robots_url = (
-        f"{parsed.scheme}://{parsed.netloc}/robots.txt"
-    )
+    normalized_url = normalize_url(url)
+    parsed = urlparse(normalized_url)
+    robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
 
     try:
-        response = requests.get(
+        status, text, _, final_url = _download_text(
             robots_url,
-            headers={"User-Agent": USER_AGENT},
             timeout=8,
+            headers={"Accept": "text/plain,*/*;q=0.1"},
         )
-    except requests.RequestException:
-        return False, "robots.txt를 확인하지 못했습니다."
+    except ValueError as error:
+        return False, f"robots.txt를 확인하지 못했습니다: {error}"
 
-    if response.status_code == 404:
+    if status == 404:
         return True, ""
-
-    if not response.ok:
-        return False, (
-            f"robots.txt 확인 실패: "
-            f"HTTP {response.status_code}"
-        )
+    if not 200 <= status < 300:
+        return False, f"robots.txt 확인 실패: HTTP {status}"
 
     parser = RobotFileParser()
-    parser.set_url(robots_url)
-    parser.parse(response.text.splitlines())
+    parser.set_url(final_url)
+    parser.parse(text.splitlines())
 
-    if not parser.can_fetch(USER_AGENT, url):
+    if not parser.can_fetch(USER_AGENT, normalized_url):
         return False, "robots.txt에서 수집을 허용하지 않습니다."
 
     return True, ""
 
 
 def fetch_html(url: str) -> str:
-    allowed, reason = robots_allows(url)
-
+    normalized_url = normalize_url(url)
+    allowed, reason = robots_allows(normalized_url)
     if not allowed:
         raise ValueError(reason)
 
-    response = requests.get(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8",
-        },
+    status, text, content_type, _ = _download_text(
+        normalized_url,
         timeout=TIMEOUT_SECONDS,
+        headers={"Accept": "text/html,application/xhtml+xml"},
     )
 
-    response.raise_for_status()
-
-    content_type = response.headers.get(
-        "Content-Type",
-        "",
-    )
-
-    if "text/html" not in content_type:
+    if not 200 <= status < 300:
+        raise ValueError(f"상품 페이지 요청 실패: HTTP {status}")
+    if "text/html" not in content_type.lower():
         raise ValueError("HTML 페이지가 아닙니다.")
 
-    return response.text
+    return text
 
 
 def iter_json_nodes(value: object):
@@ -461,78 +572,70 @@ def extract_product(
     }
 
 
+def _existing_product_row(
+    connection: sqlite3.Connection,
+    product: dict[str, object],
+    source_url: str | None,
+):
+    if source_url:
+        row = connection.execute(
+            "SELECT * FROM parts WHERE source_url = ? LIMIT 1",
+            (source_url,),
+        ).fetchone()
+        if row is not None:
+            return row
+
+    return connection.execute(
+        """
+        SELECT *
+        FROM parts
+        WHERE LOWER(category) = LOWER(?)
+          AND LOWER(manufacturer) = LOWER(?)
+          AND LOWER(model_name) = LOWER(?)
+        LIMIT 1
+        """,
+        (
+            product["category"],
+            product["manufacturer"],
+            product["model_name"],
+        ),
+    ).fetchone()
+
+
 def upsert_product(
     product: dict[str, object],
 ) -> tuple[str, int]:
+    initialize_database()
     specifications = product["specifications"]
 
     if not isinstance(specifications, dict):
         raise ValueError("제품 규격 형식이 잘못되었습니다.")
 
-    source_url = str(
-        specifications.get("source_url", "")
-    )
+    source_url = extract_source_url(specifications)
 
     with connect_database() as connection:
-        rows = connection.execute(
-            """
-            SELECT
-                id,
-                manufacturer,
-                model_name,
-                specifications
-            FROM parts
-            """
-        ).fetchall()
-
-        existing_id: int | None = None
+        connection.execute("BEGIN IMMEDIATE")
+        existing = _existing_product_row(connection, product, source_url)
         old_specifications: dict[str, object] = {}
 
-        for row in rows:
+        if existing is not None:
             try:
-                row_specs = json.loads(
-                    row["specifications"]
-                )
+                parsed = json.loads(existing["specifications"])
+                if isinstance(parsed, dict):
+                    old_specifications = parsed
             except json.JSONDecodeError:
-                row_specs = {}
+                pass
 
-            same_source = (
-                row_specs.get("source_url")
-                == source_url
-            )
+        merged_specs = {**old_specifications, **specifications}
+        serialized_specs = json.dumps(merged_specs, ensure_ascii=False)
 
-            same_name = (
-                str(row["manufacturer"]).lower()
-                == str(product["manufacturer"]).lower()
-                and str(row["model_name"]).lower()
-                == str(product["model_name"]).lower()
-            )
-
-            if same_source or same_name:
-                existing_id = int(row["id"])
-                old_specifications = row_specs
-                break
-
-        merged_specs = {
-            **old_specifications,
-            **specifications,
-        }
-
-        serialized_specs = json.dumps(
-            merged_specs,
-            ensure_ascii=False,
-        )
-
-        if existing_id is not None:
+        if existing is not None:
+            existing_id = int(existing["id"])
             connection.execute(
                 """
                 UPDATE parts
-                SET
-                    category = ?,
-                    manufacturer = ?,
-                    model_name = ?,
-                    price = ?,
-                    specifications = ?
+                SET category = ?, manufacturer = ?, model_name = ?,
+                    price = ?, specifications = ?, source_url = ?
                 WHERE id = ?
                 """,
                 (
@@ -541,37 +644,59 @@ def upsert_product(
                     product["model_name"],
                     product["price"],
                     serialized_specs,
+                    source_url,
                     existing_id,
                 ),
             )
-
             connection.commit()
-
             return "updated", existing_id
 
-        cursor = connection.execute(
-            """
-            INSERT INTO parts (
-                category,
-                manufacturer,
-                model_name,
-                price,
-                specifications
+        try:
+            cursor = connection.execute(
+                """
+                INSERT INTO parts (
+                    category, manufacturer, model_name, price,
+                    specifications, source_url
+                )
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    product["category"],
+                    product["manufacturer"],
+                    product["model_name"],
+                    product["price"],
+                    serialized_specs,
+                    source_url,
+                ),
             )
-            VALUES (?, ?, ?, ?, ?)
-            """,
-            (
-                product["category"],
-                product["manufacturer"],
-                product["model_name"],
-                product["price"],
-                serialized_specs,
-            ),
-        )
+            connection.commit()
+            return "created", int(cursor.lastrowid)
+        except sqlite3.IntegrityError:
+            # 다른 수집 작업이 같은 상품을 먼저 저장한 경우 다시 조회해 갱신합니다.
+            existing = _existing_product_row(connection, product, source_url)
+            if existing is None:
+                raise
 
-        connection.commit()
-
-        return "created", int(cursor.lastrowid)
+            existing_id = int(existing["id"])
+            connection.execute(
+                """
+                UPDATE parts
+                SET category = ?, manufacturer = ?, model_name = ?,
+                    price = ?, specifications = ?, source_url = ?
+                WHERE id = ?
+                """,
+                (
+                    product["category"],
+                    product["manufacturer"],
+                    product["model_name"],
+                    product["price"],
+                    serialized_specs,
+                    source_url,
+                    existing_id,
+                ),
+            )
+            connection.commit()
+            return "updated", existing_id
 
 
 def import_from_urls(
