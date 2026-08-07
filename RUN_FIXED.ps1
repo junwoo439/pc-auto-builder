@@ -1,3 +1,4 @@
+"""
 param(
     [int]$Port = 8000
 )
@@ -12,3 +13,4 @@ if (-not (Test-Path $VenvPython)) {
 
 Set-Location (Join-Path $ProjectRoot "backend")
 & $VenvPython -m uvicorn app.main:app --reload --host 127.0.0.1 --port $Port
+"""

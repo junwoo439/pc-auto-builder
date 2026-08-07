@@ -1,3 +1,4 @@
+"""
 from __future__ import annotations
 
 import hashlib
@@ -142,3 +143,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+"""
