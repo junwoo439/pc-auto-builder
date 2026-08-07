@@ -1,4 +1,11 @@
-<!doctype html>
+from pathlib import Path
+from datetime import datetime
+import shutil
+
+ROOT = Path(r"C:\Users\windows\Documents\pc-auto-builder-main")
+TARGET = ROOT / "frontend" / "3d_view.html"
+
+HTML = r'''<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -19,7 +26,7 @@
 <body>
 <div id="stage"><canvas id="gl"></canvas></div>
 <div id="panel">
-  <h2>PC 규격 3D 안전모드 v2</h2>
+  <h2>PC 규격 3D 안전모드</h2>
   <div id="badge"><i class="dot"></i><span id="mode">렌더러 확인 중</span></div>
   <p class="muted">외부 Three.js 없이 실행됩니다. WebGL이 막히면 자동으로 가벼운 2D 아이소메트릭 렌더러로 전환됩니다.</p>
   <div class="legend">
@@ -79,4 +86,15 @@ initGL();stored();parent.postMessage({type:'pc-builder-3d-ready'},location.origi
 })();
 </script>
 </body>
-</html>
+</html>'''
+
+if not TARGET.exists():
+    raise SystemExit(f"[오류] 파일을 찾지 못했습니다: {TARGET}")
+
+stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+backup = TARGET.with_name(f"3d_view.backup-{stamp}.html")
+shutil.copy2(TARGET, backup)
+TARGET.write_text(HTML, encoding="utf-8")
+print("[완료] 3D 안전모드 패치 적용")
+print(f"[백업] {backup}")
+print("[다음] 서버 실행 후 브라우저에서 Ctrl+F5")

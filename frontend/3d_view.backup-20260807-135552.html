@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PC 규격 기반 3D 시각화</title>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #101216; color: #fff; font-family: "Malgun Gothic", sans-serif; }
+        #canvas-container { width: 100vw; height: 100vh; }
+        #ui-panel { position: absolute; top: 16px; left: 16px; z-index: 10; width: min(390px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto; padding: 18px; border: 1px solid #34404d; border-radius: 12px; background: rgba(13, 17, 23, .94); box-shadow: 0 12px 40px rgba(0,0,0,.4); }
+        h2 { margin: 0 0 8px; font-size: 18px; color: #68e1ff; }
+        h3 { margin: 18px 0 8px; font-size: 14px; color: #ffd866; }
+        p { margin: 0 0 10px; color: #b8c4d0; font-size: 12px; line-height: 1.55; }
+        .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 12px; }
+        .legend span { display: flex; align-items: center; gap: 7px; }
+        .dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+        .part { margin: 6px 0; padding: 8px 10px; border-left: 3px solid #68e1ff; border-radius: 5px; background: rgba(255,255,255,.05); font-size: 12px; line-height: 1.45; }
+        .check { margin-top: 8px; padding: 10px; border-radius: 7px; font-size: 12px; line-height: 1.5; }
+        .ok { border: 1px solid #2ecf78; background: rgba(46,207,120,.12); color: #80efae; }
+        .warn { border: 1px solid #ffbd4a; background: rgba(255,189,74,.12); color: #ffd27a; }
+        .error { border: 1px solid #ff5a70; background: rgba(255,90,112,.13); color: #ff9dab; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+<div id="ui-panel">
+    <h2>규격 기반 3D 참고 시각화</h2>
+    <p>실제 장착 위치를 보증하는 CAD 검증이 아닙니다. 마우스 드래그로 회전하고 휠로 확대하세요.</p>
+    <div class="legend">
+        <span><i class="dot" style="background:#3ea6ff"></i>케이스</span>
+        <span><i class="dot" style="background:#36d982"></i>메인보드</span>
+        <span><i class="dot" style="background:#ff566c"></i>그래픽카드</span>
+        <span><i class="dot" style="background:#ffd43b"></i>파워</span>
+    </div>
+    <h3>추천 부품</h3>
+    <div id="parts"></div>
+    <h3>규격 확인</h3>
+    <div id="checks"></div>
+    <div class="check warn">BIOS, 전원 커넥터, 케이블 공간, 라디에이터·RAM 간섭은 제조사 상세 규격으로 최종 확인해야 합니다.</div>
+</div>
+<div id="canvas-container"></div>
+<script>
+(() => {
+    const SCALE = 0.1;
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x101216);
+
+    const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 2000);
+    camera.position.set(75, 58, 95);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(innerWidth, innerHeight);
+    document.getElementById("canvas-container").appendChild(renderer.domElement);
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.target.set(0, 22, 0);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+    const light = new THREE.DirectionalLight(0xffffff, 0.9);
+    light.position.set(60, 100, 70);
+    scene.add(light);
+    scene.add(new THREE.GridHelper(220, 44, 0x3b4652, 0x252d35));
+
+    let buildGroup = new THREE.Group();
+    scene.add(buildGroup);
+
+    function number(value, fallback) {
+        const parsed = Number(value);
+        return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+    }
+
+    function makeBox(width, height, depth, color, opacity = 0.9, wireframe = false) {
+        const geometry = new THREE.BoxGeometry(width * SCALE, height * SCALE, depth * SCALE);
+        const material = new THREE.MeshStandardMaterial({
+            color,
+            transparent: opacity < 1,
+            opacity,
+            wireframe,
+            roughness: 0.6,
+        });
+        return new THREE.Mesh(geometry, material);
+    }
+
+    function clearBuild() {
+        scene.remove(buildGroup);
+        buildGroup.traverse(object => {
+            object.geometry?.dispose?.();
+            if (Array.isArray(object.material)) object.material.forEach(material => material.dispose());
+            else object.material?.dispose?.();
+        });
+        buildGroup = new THREE.Group();
+        scene.add(buildGroup);
+    }
+
+    function partMap(fullData) {
+        const parts = Array.isArray(fullData?.parts) ? fullData.parts : [];
+        return Object.fromEntries(parts.map(part => [String(part.category || "").toLowerCase(), part]));
+    }
+
+    function motherboardDimensions(part, fallback) {
+        const specs = part?.specifications || {};
+        if (specs.width_mm && specs.height_mm) {
+            return { width_mm: number(specs.width_mm, 244), height_mm: number(specs.height_mm, 244) };
+        }
+        const factor = String(specs.form_factor || fallback?.form_factor || "M-ATX").toUpperCase();
+        if (factor.includes("E-ATX")) return { width_mm: 330, height_mm: 305 };
+        if (factor === "ATX") return { width_mm: 305, height_mm: 244 };
+        if (factor.includes("ITX")) return { width_mm: 170, height_mm: 170 };
+        return { width_mm: 244, height_mm: 244 };
+    }
+
+    function addPartList(fullData) {
+        const root = document.getElementById("parts");
+        root.replaceChildren();
+        const parts = Array.isArray(fullData?.parts) ? fullData.parts : [];
+
+        if (!parts.length) {
+            const empty = document.createElement("p");
+            empty.textContent = "추천 결과를 먼저 생성하세요.";
+            root.appendChild(empty);
+            return;
+        }
+
+        for (const part of parts) {
+            const item = document.createElement("div");
+            item.className = "part";
+            const category = String(part.category || "부품").toUpperCase();
+            const name = part.model_name || part.name || "이름 없음";
+            item.textContent = `[${category}] ${name}`;
+            root.appendChild(item);
+        }
+    }
+
+    function addCheck(message, level = "ok") {
+        const item = document.createElement("div");
+        item.className = `check ${level}`;
+        item.textContent = message;
+        document.getElementById("checks").appendChild(item);
+    }
+
+    function render(payload) {
+        const data = payload?.threeD || payload?.three_d_data || {};
+        const fullData = payload?.full || payload?.fullData || payload || {};
+        const parts = partMap(fullData);
+        const checksRoot = document.getElementById("checks");
+        checksRoot.replaceChildren();
+        addPartList(fullData);
+        clearBuild();
+
+        const casePart = parts.case;
+        const caseSpecs = casePart?.specifications || data.case || {};
+        const caseW = number(caseSpecs.width_mm, 218);
+        const caseH = number(caseSpecs.height_mm, 473);
+        const caseD = number(caseSpecs.depth_mm, 441);
+        const caseMesh = makeBox(caseW, caseH, caseD, 0x3ea6ff, 0.15, true);
+        caseMesh.position.set(0, caseH * SCALE / 2, 0);
+        buildGroup.add(caseMesh);
+
+        const boardPart = parts.motherboard;
+        const boardSize = motherboardDimensions(boardPart, data.motherboard || {});
+        const board = makeBox(10, boardSize.height_mm, boardSize.width_mm, 0x36d982, 0.9);
+        board.position.set(-caseW * SCALE / 2 + 1.5, Math.min(caseH - boardSize.height_mm / 2 - 25, caseH * 0.58) * SCALE, -20 * SCALE);
+        buildGroup.add(board);
+
+        const psuPart = parts.psu;
+        const psuSpecs = psuPart?.specifications || data.psu || {};
+        const psuW = number(psuSpecs.width_mm, 150);
+        const psuH = number(psuSpecs.height_mm, 86);
+        const psuD = number(psuSpecs.depth_mm || psuSpecs.length_mm, 140);
+        const psu = makeBox(psuW, psuH, psuD, 0xffd43b, 0.92);
+        psu.position.set(0, psuH * SCALE / 2 + 1, -caseD * SCALE / 2 + psuD * SCALE / 2 + 1);
+        buildGroup.add(psu);
+
+        const gpuPart = parts.gpu;
+        if (gpuPart) {
+            const gpuSpecs = gpuPart.specifications || data.gpu || {};
+            const gpuLength = number(gpuSpecs.length_mm || gpuSpecs.length, 280);
+            const gpuThickness = number(gpuSpecs.thickness_mm, 45);
+            const gpuHeight = number(gpuSpecs.height_mm, 120);
+            const maxGpuLength = number(caseSpecs.max_gpu_length_mm, caseD - 20);
+            const overflow = gpuLength > maxGpuLength;
+            const gpu = makeBox(gpuThickness, gpuHeight, gpuLength, overflow ? 0xff1f3d : 0xff566c, 0.92);
+            gpu.position.set(18 * SCALE, Math.max(psuH + gpuHeight / 2 + 25, caseH * 0.42) * SCALE, -caseD * SCALE / 2 + gpuLength * SCALE / 2 + 8 * SCALE);
+            buildGroup.add(gpu);
+
+            addCheck(
+                `그래픽카드 길이 ${gpuLength}mm / 케이스 허용 ${maxGpuLength}mm`,
+                overflow ? "error" : "ok"
+            );
+        } else {
+            addCheck("그래픽카드가 선택되지 않았습니다. CPU 내장그래픽 확인 결과를 추천 화면에서 확인하세요.", "warn");
+        }
+
+        const boardFactor = String(boardPart?.specifications?.form_factor || "").toUpperCase();
+        const supported = caseSpecs.supported_form_factors || caseSpecs.motherboard_form_factors || [];
+        if (boardPart && Array.isArray(supported) && supported.length) {
+            const normalized = value => String(value).toUpperCase().replace("MICRO-ATX", "M-ATX").replace("MICRO ATX", "M-ATX");
+            const boardOk = supported.map(normalized).includes(normalized(boardFactor));
+            addCheck(`메인보드 ${boardFactor || "규격 미상"} / 케이스 지원 ${supported.join(", ")}`, boardOk ? "ok" : "error");
+        }
+
+        if (casePart) addCheck(`케이스 외형 ${caseW} × ${caseH} × ${caseD}mm`, "ok");
+        else addCheck("케이스가 선택되지 않아 기본 외곽 상자로 표시했습니다.", "warn");
+    }
+
+    function readStored() {
+        let threeD = {};
+        let full = {};
+        try { threeD = JSON.parse(localStorage.getItem("recommend_3d_data") || "{}"); } catch (_) {}
+        try { full = JSON.parse(localStorage.getItem("recommend_full_data") || "{}"); } catch (_) {}
+        render({ threeD, full });
+    }
+
+    addEventListener("message", event => {
+        if (event.origin !== location.origin) return;
+        if (event.data?.type !== "pc-builder-3d-data") return;
+        render(event.data.payload || {});
+    });
+
+    readStored();
+    parent.postMessage({ type: "pc-builder-3d-ready" }, location.origin);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    addEventListener("resize", () => {
+        camera.aspect = innerWidth / innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(innerWidth, innerHeight);
+    });
+})();
+</script>
+</body>
+</html>

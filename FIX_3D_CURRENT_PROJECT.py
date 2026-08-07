@@ -1,4 +1,29 @@
-<!doctype html>
+from pathlib import Path
+from datetime import datetime
+import shutil
+
+# 현재 이 파일이 들어있는 프로젝트를 자동으로 찾습니다.
+SCRIPT_DIR = Path(__file__).resolve().parent
+CWD = Path.cwd()
+
+def find_project_root():
+    candidates = [CWD, SCRIPT_DIR]
+    for base in list(candidates):
+        candidates.extend(base.parents)
+    for base in candidates:
+        if (base / "frontend" / "3d_view.html").exists() and (base / "backend").exists():
+            return base
+    raise SystemExit(
+        "[오류] 프로젝트를 찾지 못했습니다. "
+        "이 파일을 pc-auto-builder-upload 폴더에 넣고 다시 실행하세요."
+    )
+
+ROOT = find_project_root()
+TARGET = ROOT / "frontend" / "3d_view.html"
+print(f"[대상 프로젝트] {ROOT}")
+print(f"[대상 3D 파일] {TARGET}")
+
+HTML = r'''<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -79,4 +104,15 @@ initGL();stored();parent.postMessage({type:'pc-builder-3d-ready'},location.origi
 })();
 </script>
 </body>
-</html>
+</html>'''
+
+if not TARGET.exists():
+    raise SystemExit(f"[오류] 파일을 찾지 못했습니다: {TARGET}")
+
+stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+backup = TARGET.with_name(f"3d_view.backup-{stamp}.html")
+shutil.copy2(TARGET, backup)
+TARGET.write_text(HTML, encoding="utf-8")
+print("[완료] 3D 안전모드 v2 패치 적용")
+print(f"[백업] {backup}")
+print("[다음] 서버 실행 후 브라우저에서 Ctrl+F5")
