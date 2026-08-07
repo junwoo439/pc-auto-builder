@@ -1937,70 +1937,6 @@ def build_summary(build: PartialBuild) -> dict[str, object]:
     }
 
 
-# ============================================================
-# Orange AI integration for automatic recommendation
-# 기존 규칙 엔진은 명백한 비호환 후보를 제거하고,
-# 실제 Orange Neural Network는 남은 후보의 최종 순위를 결정합니다.
-# ============================================================
-
-ORANGE_AI_MAX_CANDIDATES = 120
-ORANGE_AI_REQUIRED_CATEGORIES = (
-    "cpu",
-    "motherboard",
-    "ram",
-    "gpu",
-    "psu",
-    "case",
-    "cooler",
-)
-
-
-def _orange_ai_has_full_build(build: PartialBuild) -> bool:
-    return all(
-        isinstance(build.get(category), dict)
-        for category in ORANGE_AI_REQUIRED_CATEGORIES
-    )
-
-
-def _orange_ai_evaluate_build(
-    build: PartialBuild,
-) -> dict[str, object]:
-    from app.ai.compatibility_ai import check_full_build
-
-    cpu = build["cpu"]
-    board = build["motherboard"]
-    ram = build["ram"]
-    gpu = build["gpu"]
-    psu = build["psu"]
-    computer_case = build["case"]
-    cooler = build["cooler"]
-
-    return check_full_build(
-        cpu=get_specs(cpu),
-        board=get_specs(board),
-        ram=get_specs(ram),
-        gpu=get_specs(gpu),
-        psu=get_specs(psu),
-        case=get_specs(computer_case),
-        cooler=get_specs(cooler),
-    )
-
-
-def _orange_yes_probability(
-    result: dict[str, object] | None,
-) -> float:
-    if not result:
-        return 0.0
-
-    probabilities = result.get("probabilities")
-    if not isinstance(probabilities, dict):
-        return 0.0
-
-    try:
-        return float(probabilities.get("yes", 0.0))
-    except (TypeError, ValueError):
-        return 0.0
-
 @router.post("/auto")
 def recommend_build(
     request: RecommendationRequest,
@@ -2097,7 +2033,6 @@ def recommend_build(
             "suggestions": suggestions,
         }
 
-    # 1차: 기존 규칙 기반 점수로 후보를 정렬합니다.
     candidates.sort(
         key=lambda build: final_score(
             build,
@@ -2106,184 +2041,7 @@ def recommend_build(
         reverse=True,
     )
 
-    # 2차: 실제 Orange Neural Network로 상위 후보를 평가합니다.
-    ai_eligible_candidates = [
-        build
-        for build in candidates
-        if _orange_ai_has_full_build(build)
-    ]
-
-    ai_attempt_pool = ai_eligible_candidates[
-        :ORANGE_AI_MAX_CANDIDATES
-    ]
-
-    ai_attempted = 0
-    ai_successful = 0
-    ai_failed = 0
-    ai_errors: list[str] = []
-    ai_successful_builds: list[PartialBuild] = []
-
-    for build in ai_attempt_pool:
-        ai_attempted += 1
-
-        try:
-            ai_result = _orange_ai_evaluate_build(
-                build
-            )
-
-            build["_orange_ai"] = ai_result
-            ai_successful += 1
-            ai_successful_builds.append(build)
-
-        except Exception as error:
-            ai_failed += 1
-            build["_orange_ai_error"] = (
-                f"{type(error).__name__}: {error}"
-            )
-
-            if len(ai_errors) < 5:
-                ai_errors.append(
-                    str(build["_orange_ai_error"])
-                )
-
-    # 3차: AI 성공 후보가 있으면 AI 판정/확률을 최종 순위에 실제 반영합니다.
-    ai_used_in_ranking = bool(
-        ai_successful_builds
-    )
-
-    if ai_successful_builds:
-        ai_successful_builds.sort(
-            key=lambda build: (
-                (
-                    1
-                    if isinstance(
-                        build.get("_orange_ai"),
-                        dict,
-                    )
-                    and build["_orange_ai"].get(
-                        "prediction"
-                    ) == "yes"
-                    else 0
-                ),
-                _orange_yes_probability(
-                    build.get("_orange_ai")
-                    if isinstance(
-                        build.get("_orange_ai"),
-                        dict,
-                    )
-                    else None
-                ),
-                final_score(
-                    build,
-                    request,
-                ),
-            ),
-            reverse=True,
-        )
-
-        selected = ai_successful_builds[0]
-    else:
-        selected = candidates[0]
-
-    selected_ai = (
-        selected.get("_orange_ai")
-        if isinstance(
-            selected.get("_orange_ai"),
-            dict,
-        )
-        else None
-    )
-
-    selected_ai_probability = (
-        _orange_yes_probability(
-            selected_ai
-        )
-        if selected_ai
-        else None
-    )
-
-    ai_execution_success_rate = (
-        round(
-            ai_successful
-            / ai_attempted
-            * 100,
-            1,
-        )
-        if ai_attempted
-        else 0.0
-    )
-
-    ai_coverage_rate = (
-        round(
-            ai_attempted
-            / len(candidates)
-            * 100,
-            1,
-        )
-        if candidates
-        else 0.0
-    )
-
-    ai_eligible_coverage_rate = (
-        round(
-            ai_attempted
-            / len(ai_eligible_candidates)
-            * 100,
-            1,
-        )
-        if ai_eligible_candidates
-        else 0.0
-    )
-
-    ai_summary = {
-        "enabled": True,
-        "engine": (
-            "Orange Neural Network "
-            "(5 partial models + Final_Compatibility)"
-        ),
-        "used_in_ranking": ai_used_in_ranking,
-        "required_categories": list(
-            ORANGE_AI_REQUIRED_CATEGORIES
-        ),
-        "evaluated_candidates": len(candidates),
-        "eligible_candidates": len(
-            ai_eligible_candidates
-        ),
-        "attempted_candidates": ai_attempted,
-        "successful_candidates": ai_successful,
-        "failed_candidates": ai_failed,
-        "coverage_rate_percent": (
-            ai_coverage_rate
-        ),
-        "eligible_coverage_rate_percent": (
-            ai_eligible_coverage_rate
-        ),
-        "execution_success_rate_percent": (
-            ai_execution_success_rate
-        ),
-        "selected_prediction": (
-            selected_ai.get("prediction")
-            if selected_ai
-            else None
-        ),
-        "selected_yes_probability_percent": (
-            round(
-                selected_ai_probability
-                * 100,
-                1,
-            )
-            if selected_ai_probability
-            is not None
-            else None
-        ),
-        "errors": ai_errors,
-    }
-
-    if not ai_eligible_candidates:
-        ai_summary["reason"] = (
-            "최종 Orange AI는 CPU, 메인보드, RAM, GPU, PSU, "
-            "케이스, 쿨러가 모두 포함된 추천에서 실행됩니다."
-        )
+    selected = candidates[0]
     selected_parts = [
         serialize_part(part)
         for part in selected["parts"]
@@ -2309,41 +2067,6 @@ def recommend_build(
             for value in selected["checks"]
         )
     )
-
-    # 기존 화면이 compatibility_checks를 표시한다면 프론트 수정 없이도 보입니다.
-    if ai_used_in_ranking:
-        checks.insert(
-            0,
-            (
-                "Orange AI 자동 추천 적용: 사용됨 | "
-                f"AI 실행 성공률 "
-                f"{ai_execution_success_rate:.1f}% "
-                f"({ai_successful}/{ai_attempted}) | "
-                f"전체 후보 AI 적용률 "
-                f"{ai_coverage_rate:.1f}% "
-                f"({ai_attempted}/{len(candidates)})"
-            ),
-        )
-
-        if selected_ai_probability is not None:
-            checks.insert(
-                1,
-                (
-                    "선택 조합 Orange AI 호환 확률: "
-                    f"{selected_ai_probability * 100:.1f}% "
-                    f"| 판정: "
-                    f"{selected_ai.get('prediction')}"
-                ),
-            )
-    else:
-        checks.insert(
-            0,
-            (
-                "Orange AI 자동 추천 적용: 미사용 | "
-                f"실행 시도 {ai_attempted}건, "
-                f"성공 {ai_successful}건"
-            ),
-        )
 
     total_price = int(
         selected["total_price"]
@@ -2374,7 +2097,6 @@ def recommend_build(
             "depth_mm": case_specs.get("depth_mm"),
         },
         "parts": selected_parts,
-        "ai": ai_summary,
         "compatibility_checks": checks,
         "warnings": warnings,
         "verification_level": "basic_compatibility_checked",

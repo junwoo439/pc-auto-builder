@@ -1,0 +1,120 @@
+from __future__ import annotations
+
+from contextlib import asynccontextmanager
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
+
+from app.data.database import get_all_parts, initialize_database
+from app.routers import (
+    backups,
+    bulk_parts,
+    compatibility,
+    imports,
+    parts,
+    recommendations,
+    spec_updates,
+    ai_compatibility,
+)
+from app.services.part_backup import restore_seed_if_database_empty
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    initialize_database()
+    app.state.seed_restore = restore_seed_if_database_empty()
+    yield
+
+
+from app.routers import ai_compatibility
+
+app = FastAPI(
+    title="PC Auto Builder API",
+    description="컴퓨터 부품 추천 및 기본 규격 호환성 검사 API",
+    version="1.0.0",
+    lifespan=lifespan,
+)
+
+app.include_router(parts.router)
+app.include_router(spec_updates.router)
+app.include_router(bulk_parts.router)
+app.include_router(compatibility.router)
+app.include_router(recommendations.router)
+app.include_router(imports.router)
+app.include_router(backups.router)
+app.include_router(ai_compatibility.router)
+
+def frontend_response(filename: str) -> FileResponse:
+    file_path = (FRONTEND_DIR / filename).resolve()
+
+    if FRONTEND_DIR.resolve() not in file_path.parents:
+        raise HTTPException(status_code=400, detail="잘못된 파일 경로입니다.")
+
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail=f"{filename} 파일을 찾을 수 없습니다.")
+
+    return FileResponse(file_path)
+
+
+@app.get("/", include_in_schema=False)
+def read_root() -> RedirectResponse:
+    return RedirectResponse(url="/app")
+
+
+@app.get("/health")
+def health_check() -> dict[str, object]:
+    initialize_database()
+    return {
+        "status": "ok",
+        "part_count": len(get_all_parts()),
+        "seed_restore": getattr(app.state, "seed_restore", None),
+    }
+
+
+@app.get("/app", include_in_schema=False)
+def serve_builder() -> FileResponse:
+    return frontend_response("index.html")
+
+
+@app.get("/recommend", include_in_schema=False)
+def serve_recommendation() -> FileResponse:
+    return frontend_response("recommend.html")
+
+
+@app.get("/admin", include_in_schema=False)
+def serve_admin() -> FileResponse:
+    return frontend_response("admin.html")
+
+
+@app.get("/import", include_in_schema=False)
+def serve_import_page() -> FileResponse:
+    return frontend_response("import.html")
+
+
+@app.get("/bulk-import", include_in_schema=False)
+def serve_bulk_import_page() -> FileResponse:
+    return frontend_response("bulk-import.html")
+
+
+@app.get("/backup", include_in_schema=False)
+def serve_backup_page() -> FileResponse:
+    return frontend_response("backup.html")
+
+
+@app.get("/3d_view.html", include_in_schema=False)
+def serve_3d_view() -> FileResponse:
+    return frontend_response("3d_view.html")
+
+
+if FRONTEND_DIR.exists():
+    app.mount(
+        "/static",
+        StaticFiles(directory=FRONTEND_DIR),
+        name="frontend-static",
+    )
