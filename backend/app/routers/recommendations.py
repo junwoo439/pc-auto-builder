@@ -268,27 +268,37 @@ def cpu_cooler_included(cpu: Part) -> bool:
         return explicit
 
     name = normalize_text(model_name(cpu))
-    raw = normalize_text(
-        specs.get("danawa_raw_spec", "")
-    )
+    raw = normalize_text(specs.get("danawa_raw_spec", ""))
+    manufacturer = normalize_text(cpu.get("manufacturer", ""))
 
-    if "쿨러 : 미포함" in raw or "쿨러: 미포함" in raw:
+    if (
+        "쿨러 : 미포함" in raw
+        or "쿨러: 미포함" in raw
+        or "COOLER NOT INCLUDED" in raw
+    ):
         return False
 
-    if "+ 쿨러" in name or "쿨러 포함" in name:
+    if (
+        "+ 쿨러" in name
+        or "쿨러 포함" in name
+        or "COOLER INCLUDED" in name
+    ):
         return True
 
-    if "벌크" in name:
+    if "벌크" in name or "TRAY" in name:
         return False
 
+    # Intel K/KF 및 Core Ultra K는 기본 쿨러가 포함되지 않습니다.
     if re.search(r"\b\d{4,5}(?:K|KF)\b", name):
         return False
-
     if "ULTRA" in name and re.search(r"\b\d{3}K\b", name):
         return False
 
-    # 일반 정품 non-K 인텔 CPU는 기본 쿨러가 포함되는 경우가 많습니다.
-    if "정품" in name:
+    # AMD X/X3D 계열은 일반적으로 기본 쿨러가 포함되지 않습니다.
+    if "AMD" in manufacturer and re.search(r"\b\d{4,5}(?:X|X3D)\b", name):
+        return False
+
+    if "정품" in name or "BOX" in name:
         return True
 
     return False
@@ -1233,7 +1243,17 @@ def ready_for_request(
     selected = request.selected_set()
 
     if category == "cpu":
-        return ready_cpu(part)
+        if not ready_cpu(part):
+            return False
+
+        selected = request.selected_set()
+        if "gpu" not in selected and not has_integrated_graphics(part):
+            return False
+
+        if "cooler" not in selected and not cpu_cooler_included(part):
+            return False
+
+        return True
 
     if category == "motherboard":
         return ready_board(part)
@@ -1434,6 +1454,18 @@ def candidate_compatibility(
     )
 
     if category == "cpu":
+        selected = request.selected_set()
+
+        if "gpu" not in selected:
+            if not has_integrated_graphics(part):
+                return False, checks, warnings
+            checks.append("그래픽카드 미선택 구성: CPU 내장그래픽 탑재 확인")
+
+        if "cooler" not in selected:
+            if not cpu_cooler_included(part):
+                return False, checks, warnings
+            checks.append("별도 쿨러 미선택 구성: CPU 기본 쿨러 포함 확인")
+
         return True, checks, warnings
 
     if category == "motherboard":
@@ -1616,6 +1648,56 @@ def candidate_compatibility(
     return True, checks, warnings
 
 
+def validate_complete_build(
+    build: PartialBuild,
+    request: RecommendationRequest,
+) -> tuple[bool, list[str], list[str]]:
+    checks: list[str] = []
+    warnings: list[str] = []
+    selected = request.selected_set()
+
+    cpu_value = build.get("cpu")
+    gpu_value = build.get("gpu")
+    cooler_value = build.get("cooler")
+    cpu = cpu_value if isinstance(cpu_value, dict) else None
+    gpu = gpu_value if isinstance(gpu_value, dict) else None
+    cooler = cooler_value if isinstance(cooler_value, dict) else None
+
+    if cpu is not None and "gpu" not in selected and gpu is None:
+        if not has_integrated_graphics(cpu):
+            return False, checks, warnings
+        checks.append("화면 출력용 CPU 내장그래픽을 최종 확인했습니다.")
+
+    if cpu is not None and "cooler" not in selected and cooler is None:
+        if not cpu_cooler_included(cpu):
+            return False, checks, warnings
+        checks.append("CPU 기본 쿨러 포함 여부를 최종 확인했습니다.")
+
+    if cpu is not None and "motherboard" in selected:
+        warnings.append(
+            "메인보드 BIOS 버전의 해당 CPU 지원 여부는 제조사 CPU 지원 목록에서 최종 확인하세요."
+        )
+
+    if "gpu" in selected and gpu is not None:
+        warnings.append(
+            "그래픽카드 보조전원 커넥터 종류와 케이스 슬롯 두께는 상품 상세페이지에서 최종 확인하세요."
+        )
+
+    return True, checks, warnings
+
+
+def verification_notes(request: RecommendationRequest) -> list[str]:
+    notes = [
+        "이 결과는 등록된 소켓, 메모리 규격, 길이, 냉각 용량, 정격 출력 등 기본 규격 데이터 기준입니다.",
+        "실구매 전 제조사 호환 목록, BIOS 버전, 전원 커넥터, 케이블 공간을 확인해야 합니다.",
+    ]
+    if "case" in request.selected_set():
+        notes.append(
+            "3D 화면은 규격 기반 참고 시각화이며 실제 나사 위치·케이블·라디에이터 간섭을 보증하지 않습니다."
+        )
+    return notes
+
+
 def build_candidates(
     categories: dict[str, list[Part]],
     request: RecommendationRequest,
@@ -1668,7 +1750,20 @@ def build_candidates(
         if not partials:
             return []
 
-    return partials
+    complete_builds: list[PartialBuild] = []
+    for partial in partials:
+        valid, checks, warnings = validate_complete_build(partial, request)
+        if not valid:
+            continue
+
+        completed = {
+            **partial,
+            "checks": list(partial["checks"]) + checks,
+            "warnings": list(partial["warnings"]) + warnings,
+        }
+        complete_builds.append(completed)
+
+    return complete_builds
 
 
 def final_score(
@@ -1727,13 +1822,22 @@ def build_failure_message(
                 "1개 이상 등록하거나 상세 규격 갱신을 실행하세요."
             )
 
+    if "cpu" in request.selected_set() and "gpu" not in request.selected_set():
+        suggestions.append(
+            "그래픽카드를 선택하지 않았다면 내장그래픽이 탑재된 CPU 데이터가 필요합니다."
+        )
+
+    if "cpu" in request.selected_set() and "cooler" not in request.selected_set():
+        suggestions.append(
+            "별도 쿨러를 선택하지 않았다면 기본 쿨러 포함 CPU만 사용할 수 있습니다."
+        )
+
     if not suggestions:
         suggestions.extend(
             [
                 "예산을 높이거나 선택한 장비 수를 줄여 다시 시도하세요.",
                 "케이스를 선택했다면 최대 설치 공간을 넓혀 보세요.",
-                "서로 연결되는 장비의 소켓·DDR 규격·길이·"
-                "파워 용량을 확인하세요.",
+                "서로 연결되는 장비의 소켓·DDR 규격·길이·파워 용량을 확인하세요.",
             ]
         )
 
@@ -1976,8 +2080,8 @@ def recommend_build(
     return {
         "found": True,
         "message": (
-            "선택한 장비만 대상으로 상세 규격과 호환성을 "
-            "검사해 예산에 맞는 조합을 찾았습니다."
+            "선택한 장비를 대상으로 등록된 기본 규격을 검사해 "
+            "예산에 맞는 조합을 찾았습니다. 구매 전 최종 확인 항목도 함께 확인하세요."
         ),
         "budget": request.budget,
         "purpose": request.purpose,
@@ -1995,11 +2099,8 @@ def recommend_build(
         "parts": selected_parts,
         "compatibility_checks": checks,
         "warnings": warnings,
-        "verification_level": (
-            "verified"
-            if not warnings
-            else "partially_verified"
-        ),
+        "verification_level": "basic_compatibility_checked",
+        "verification_notes": verification_notes(request),
         "build_summary": build_summary(selected),
         "included_categories": dict(
             category_counter

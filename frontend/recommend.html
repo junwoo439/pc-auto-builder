@@ -346,6 +346,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/static/neo-theme.css?v=20260807115137">
 </head>
 
 <body>
@@ -1094,12 +1095,8 @@
                 const badge = document.createElement("span");
                 badge.className = "status-badge";
 
-                if (data.verification_level === "verified") {
-                    badge.textContent = "주요 호환성 검증 완료";
-                } else {
-                    badge.textContent = "주요 호환성 검증 · 일부 최종 확인 필요";
-                    badge.classList.add("partial");
-                }
+                badge.textContent = "등록 규격 기준 기본 호환성 검사 완료";
+                badge.classList.add("partial");
 
                 verification.appendChild(badge);
 
@@ -1175,8 +1172,11 @@
 
                 renderList(
                     warnings,
-                    "최종 확인이 필요한 항목",
-                    data.warnings,
+                    "구매 전 최종 확인 항목",
+                    [
+                        ...(Array.isArray(data.warnings) ? data.warnings : []),
+                        ...(Array.isArray(data.verification_notes) ? data.verification_notes : [])
+                    ],
                     "warning-box"
                 );
 
@@ -1246,5 +1246,106 @@
             recommendBuild
         );
     </script>
+
+        
+
+<div style="margin: 30px 0; text-align: center;">
+    <button id="btn-3d-view" type="button"
+            style="padding:15px 30px; background:linear-gradient(135deg, #00e5ff, #0077ff); color:#fff; font-weight:bold; border:none; border-radius:8px; cursor:pointer; font-size:18px; box-shadow:0 4px 15px rgba(0,229,255,0.4);">
+        📐 규격 기반 3D 참고 시각화 보기
+    </button>
+</div>
+
+<div id="modal-3d" style="display:none; position:fixed; inset:0; width:100vw; height:100vh; background:rgba(0,0,0,0.9); z-index:99999;">
+    <button id="close-3d" type="button"
+            style="position:absolute; top:20px; right:20px; padding:10px 20px; background:#ff1744; color:#fff; border:none; border-radius:6px; cursor:pointer; z-index:100000; font-weight:bold; font-size:16px;">
+        닫기 ✖
+    </button>
+    <iframe id="frame-3d" title="PC 규격 기반 3D 시각화" style="width:100%; height:100%; border:none;"></iframe>
+</div>
+
+<script>
+(() => {
+    let latestRecommendation = null;
+    const modal = document.getElementById("modal-3d");
+    const frame = document.getElementById("frame-3d");
+    const openButton = document.getElementById("btn-3d-view");
+    const closeButton = document.getElementById("close-3d");
+
+    function findPart(data, category) {
+        return (data.parts || []).find(part => part.category === category) || null;
+    }
+
+    function makeThreeDData(data) {
+        const casePart = findPart(data, "case");
+        const boardPart = findPart(data, "motherboard");
+        const gpuPart = findPart(data, "gpu");
+        const psuPart = findPart(data, "psu");
+
+        return {
+            case: casePart?.specifications || data.case_dimensions || {},
+            motherboard: boardPart?.specifications || {},
+            gpu: gpuPart?.specifications || {},
+            psu: psuPart?.specifications || {}
+        };
+    }
+
+    function saveRecommendation(data) {
+        if (!data?.found || !Array.isArray(data.parts)) return;
+        latestRecommendation = data;
+        localStorage.setItem("recommend_full_data", JSON.stringify(data));
+        localStorage.setItem("recommend_3d_data", JSON.stringify(makeThreeDData(data)));
+    }
+
+    function sendToFrame() {
+        if (!latestRecommendation || !frame.contentWindow) return;
+        frame.contentWindow.postMessage(
+            {
+                type: "pc-builder-3d-data",
+                payload: {
+                    threeD: makeThreeDData(latestRecommendation),
+                    full: latestRecommendation
+                }
+            },
+            location.origin
+        );
+    }
+
+    const originalFetch = window.fetch.bind(window);
+    window.fetch = async (...args) => {
+        const response = await originalFetch(...args);
+        const clone = response.clone();
+        clone.json().then(saveRecommendation).catch(() => {});
+        return response;
+    };
+
+    try {
+        const stored = JSON.parse(localStorage.getItem("recommend_full_data") || "null");
+        if (stored?.found) latestRecommendation = stored;
+    } catch (_) {}
+
+    openButton.addEventListener("click", () => {
+        if (!latestRecommendation) {
+            alert("먼저 추천 결과를 생성해 주세요.");
+            return;
+        }
+        modal.style.display = "block";
+        frame.src = `/3d_view.html?updated=${Date.now()}`;
+    });
+
+    closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+        frame.src = "about:blank";
+    });
+
+    window.addEventListener("message", event => {
+        if (event.origin !== location.origin) return;
+        if (event.data?.type === "pc-builder-3d-ready") sendToFrame();
+    });
+
+    frame.addEventListener("load", sendToFrame);
+})();
+</script>
+
+    <script src="/static/neo-theme.js?v=20260807115137"></script>
 </body>
-</html>

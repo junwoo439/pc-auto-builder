@@ -144,6 +144,7 @@
             line-height: 1.5;
         }
     </style>
+    <link rel="stylesheet" href="/static/neo-theme.css?v=20260807115137">
 </head>
 
 <body>
@@ -305,6 +306,30 @@
             return element.innerHTML;
         }
 
+        const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+
+        async function waitForJob(jobId, adminKey) {
+            while (true) {
+                const response = await fetch(`/imports/jobs/${encodeURIComponent(jobId)}`, {
+                    headers: { "X-Admin-Key": adminKey }
+                });
+                const job = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(job.detail ?? "수집 작업 상태를 확인하지 못했습니다.");
+                }
+
+                document.getElementById("summary").textContent =
+                    job.status === "queued"
+                        ? "수집 작업이 대기 중입니다..."
+                        : "서버에서 수집 작업을 실행 중입니다. 이 창을 닫지 마세요.";
+
+                if (job.status === "completed") return job.result;
+                if (job.status === "failed") throw new Error(job.error ?? "대량 수집 작업이 실패했습니다.");
+                await sleep(2000);
+            }
+        }
+
         async function startBulkImport() {
             const urls = document
                 .getElementById("urls")
@@ -396,16 +421,20 @@
                     }
                 );
 
-                const data = await response.json();
+                const job = await response.json();
 
                 if (!response.ok) {
                     throw new Error(
-                        data.detail ??
-                        "대량 수집에 실패했습니다."
+                        job.detail ??
+                        "대량 수집 작업 등록에 실패했습니다."
                     );
                 }
 
                 resultSection.style.display = "block";
+                document.getElementById("summary").textContent =
+                    "수집 작업을 등록했습니다. 서버에서 순서대로 처리합니다.";
+
+                const data = await waitForJob(job.job_id, adminKey);
 
                 document.getElementById(
                     "summary"
@@ -504,5 +533,6 @@
             startBulkImport
         );
     </script>
+    <script src="/static/neo-theme.js?v=20260807115137"></script>
 </body>
 </html>
