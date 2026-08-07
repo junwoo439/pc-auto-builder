@@ -1,0 +1,529 @@
+﻿pair_type,left_id,left_name,right_id,right_name,cpu_socket,cpu_memory_types,board_socket,board_memory_type,board_form_factor,compatible
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,26,인텔 코어 울트라7 시리즈2 270K Plus (애로우레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,27,인텔 코어 울트라5 시리즈2 250K Plus (애로우레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,28,인텔 코어 울트라9 시리즈2 285K (애로우레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,29,인텔 코어 울트라5 시리즈2 225 (애로우레이크) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,30,인텔 코어 울트라7 시리즈2 265K (애로우레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,31,인텔 코어 울트라5 시리즈2 245K (애로우레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,32,인텔 코어i5-14세대 14400F (랩터레이크 리프레시) (밸류팩 정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,33,인텔 코어i5-14세대 14400 (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,34,인텔 코어i5-14세대 14600K (랩터레이크 리프레시) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,35,인텔 코어i7-14세대 14700F (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,36,인텔 코어i3-14세대 14100 (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,37,인텔 코어i3-14세대 14100F (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,38,인텔 코어i3-12세대 12100 (엘더레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,39,인텔 코어i7-13세대 13700KF (랩터레이크) (벌크 + 쿨러),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,40,인텔 코어i5-12세대 12400F (엘더레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,41,인텔 코어i5-13세대 13600K (랩터레이크) (벌크 + 쿨러),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,42,인텔 코어i3-13세대 13100 (랩터레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,43,인텔 코어i5-12세대 12400 (엘더레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,113,인텔 코어 울트라5 시리즈2 250KF Plus (애로우레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,118,인텔 코어i5-13세대 13500 (랩터레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,119,인텔 코어i7-12세대 12700 (엘더레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,120,인텔 코어i9-14세대 14900K (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,121,인텔 코어i7-14세대 14700 (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,122,인텔 코어i7-14세대 14700KF (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1851,DDR5,LGA1851,DDR5,ATX,yes
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1851,DDR5,LGA1851,DDR5,M-ATX,yes
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1851,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,123,인텔 코어 울트라9 시리즈2 285 (애로우레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1851,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,124,인텔 코어i3-13세대 13100F (랩터레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,125,인텔 코어i3-12세대 12100F (엘더레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1700,DDR4|DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1700,DDR4|DDR5,LGA1700,DDR5,M-ATX,yes
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,127,인텔 프로세서 300 (랩터레이크 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1700,DDR4|DDR5,LGA1700,DDR4,M-ATX,yes
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1200,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),50,MSI PRO B760M-A DDR4 II,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1200,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,128,인텔 펜티엄 골드 G6405 (코멧레이크S 리프레시) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1200,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),50,MSI PRO B760M-A DDR4 II,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1200,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,129,인텔 셀러론 G5905 (코멧레이크S) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),44,MSI MAG B860M 박격포 WIFI,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),47,ASUS PRIME B860M-A-CSM 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1151,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),49,GIGABYTE B860M DS3H 제이씨현,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),50,MSI PRO B760M-A DDR4 II,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),53,ASRock B760M Pro RS D5 에즈윈,LGA1151,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),54,ASUS PRIME B760M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,130,인텔 셀러론 G3930 (카비레이크) (벌크 + 쿨러),55,ASUS PRIME H610M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),44,MSI MAG B860M 박격포 WIFI,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),47,ASUS PRIME B860M-A-CSM 코잇,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1200,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),49,GIGABYTE B860M DS3H 제이씨현,LGA1200,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),50,MSI PRO B760M-A DDR4 II,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),53,ASRock B760M Pro RS D5 에즈윈,LGA1200,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),54,ASUS PRIME B760M-A D4 STCOM,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,131,인텔 펜티엄 골드 G6400 (코멧레이크S) (벌크 + 쿨러),55,ASUS PRIME H610M-A D4 STCOM,LGA1200,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA2066,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA2066,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,133,인텔 코어X-시리즈 i9-9940X (스카이레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA2066,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA2066,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,134,인텔 코어X-시리즈 i7-9800X (스카이레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA2066,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),50,MSI PRO B760M-A DDR4 II,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA2066,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,135,인텔 코어X-시리즈 i9-10980XE Extreme Edition (캐스케이드레이크) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA2066,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),50,MSI PRO B760M-A DDR4 II,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA2066,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,136,인텔 코어X-시리즈 i9-10920X (캐스케이드레이크) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA2066,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),50,MSI PRO B760M-A DDR4 II,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA2066,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,137,인텔 코어X-시리즈 i9-10900X (캐스케이드레이크) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),44,MSI MAG B860M 박격포 WIFI,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),47,ASUS PRIME B860M-A-CSM 코잇,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA2066,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),49,GIGABYTE B860M DS3H 제이씨현,LGA2066,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),50,MSI PRO B760M-A DDR4 II,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),52,GIGABYTE B760M DS3H D4 제이씨현,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),53,ASRock B760M Pro RS D5 에즈윈,LGA2066,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),54,ASUS PRIME B760M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,138,인텔 코어X-시리즈 i9-7920X (스카이레이크) (해외구매),55,ASUS PRIME H610M-A D4 STCOM,LGA2066,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1151,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1151,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,139,인텔 제온 E3-1225V6 (카비레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA4677,DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),50,MSI PRO B760M-A DDR4 II,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA4677,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,140,인텔 제온 w7-3465X (사파이어 래피드) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1151,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1151,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,141,인텔 제온 E3-1275V6 (카비레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),44,MSI MAG B860M 박격포 WIFI,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),47,ASUS PRIME B860M-A-CSM 코잇,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA1151,DDR4,LGA1851,DDR5,ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),49,GIGABYTE B860M DS3H 제이씨현,LGA1151,DDR4,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),50,MSI PRO B760M-A DDR4 II,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),52,GIGABYTE B760M DS3H D4 제이씨현,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),53,ASRock B760M Pro RS D5 에즈윈,LGA1151,DDR4,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),54,ASUS PRIME B760M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,142,인텔 제온 E3-1230V6 (카비레이크) (정품),55,ASUS PRIME H610M-A D4 STCOM,LGA1151,DDR4,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA4677,DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),50,MSI PRO B760M-A DDR4 II,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA4677,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,143,인텔 제온 w5-2465X (사파이어 래피드) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),44,MSI MAG B860M 박격포 WIFI,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),47,ASUS PRIME B860M-A-CSM 코잇,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,LGA4677,DDR5,LGA1851,DDR5,ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),49,GIGABYTE B860M DS3H 제이씨현,LGA4677,DDR5,LGA1851,DDR5,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),50,MSI PRO B760M-A DDR4 II,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),52,GIGABYTE B760M DS3H D4 제이씨현,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),53,ASRock B760M Pro RS D5 에즈윈,LGA4677,DDR5,LGA1700,DDR5,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),54,ASUS PRIME B760M-A D4 STCOM,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no
+cpu_motherboard,144,인텔 제온 w5-3435X (사파이어 래피드) (벌크),55,ASUS PRIME H610M-A D4 STCOM,LGA4677,DDR5,LGA1700,DDR4,M-ATX,no

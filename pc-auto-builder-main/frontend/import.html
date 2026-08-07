@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PC 부품 웹 수집</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f8;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 25px;
+            text-align: center;
+            background: #111827;
+            color: white;
+        }
+
+        main {
+            width: min(1000px, 94%);
+            margin: 25px auto;
+        }
+
+        nav {
+            margin-bottom: 18px;
+        }
+
+        nav a {
+            margin-right: 15px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            padding: 22px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 7px;
+            font-weight: bold;
+        }
+
+        select,
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 170px;
+            font-family: monospace;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .checkbox-row input {
+            width: auto;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #9ca3af;
+        }
+
+        .summary {
+            padding: 15px;
+            border-radius: 8px;
+            background: #eff6ff;
+            line-height: 1.8;
+        }
+
+        .result-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .success {
+            color: #15803d;
+        }
+
+        .failure {
+            color: #b91c1c;
+        }
+
+        .source-link {
+            color: #2563eb;
+        }
+
+        #result {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>PC 부품 웹 자동 수집</h1>
+        <p>상품 또는 카테고리 주소에서 부품을 수집합니다.</p>
+    </header>
+
+    <main>
+        <nav>
+            <a href="/app">직접 견적</a>
+            <a href="/recommend">자동 추천</a>
+            <a href="/admin">부품 관리</a>
+        </nav>
+
+        <section class="card">
+            <div class="row">
+                <div>
+                    <label for="category">부품 종류</label>
+
+                    <select id="category">
+                        <option value="cpu">CPU</option>
+
+                        <option value="motherboard">
+                            메인보드
+                        </option>
+
+                        <option value="ram">RAM</option>
+
+                        <option value="gpu">
+                            그래픽카드
+                        </option>
+
+                        <option value="case">케이스</option>
+
+                        <option value="psu">파워</option>
+
+                        <option value="cooler">쿨러</option>
+
+                        <option value="storage">
+                            저장장치
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="max-products">
+                        최대 수집 개수
+                    </label>
+
+                    <input
+                        id="max-products"
+                        type="number"
+                        min="1"
+                        max="20"
+                        value="20"
+                    >
+                </div>
+
+                <div>
+                    <label for="admin-key">관리자 키</label>
+
+                    <input
+                        id="admin-key"
+                        type="password"
+                        autocomplete="current-password"
+                    >
+                </div>
+            </div>
+
+            <label for="urls">
+                상품 또는 카테고리 페이지 주소
+            </label>
+
+            <textarea
+                id="urls"
+                placeholder="주소를 한 줄에 하나씩 입력"
+            ></textarea>
+
+            <div class="checkbox-row">
+                <input
+                    id="discover-links"
+                    type="checkbox"
+                    checked
+                >
+
+                <label for="discover-links">
+                    목록 페이지에서 상품 링크 자동 탐색
+                </label>
+            </div>
+
+            <button id="import-button" type="button">
+                웹에서 부품 수집
+            </button>
+        </section>
+
+        <section id="result" class="card">
+            <h2>수집 결과</h2>
+
+            <div
+                id="summary"
+                class="summary"
+            ></div>
+
+            <div id="result-list"></div>
+        </section>
+    </main>
+
+    <script>
+        const button =
+            document.getElementById("import-button");
+
+        const resultSection =
+            document.getElementById("result");
+
+        function formatPrice(price) {
+            if (typeof price !== "number") {
+                return "";
+            }
+
+            return `${price.toLocaleString("ko-KR")}원`;
+        }
+
+        async function importProducts() {
+            const urls = document
+                .getElementById("urls")
+                .value
+                .split("\n")
+                .map(value => value.trim())
+                .filter(Boolean);
+
+            const category =
+                document.getElementById("category").value;
+
+            const maxProducts = Number(
+                document.getElementById(
+                    "max-products"
+                ).value
+            );
+
+            const adminKey =
+                document.getElementById(
+                    "admin-key"
+                ).value;
+
+            const discoverLinks =
+                document.getElementById(
+                    "discover-links"
+                ).checked;
+
+            if (urls.length === 0) {
+                alert("수집할 주소를 입력해 주세요.");
+                return;
+            }
+
+            if (!adminKey) {
+                alert("관리자 키를 입력해 주세요.");
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = "수집 중...";
+
+            try {
+                const response = await fetch(
+                    "/imports/web",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json",
+
+                            "X-Admin-Key":
+                                adminKey
+                        },
+
+                        body: JSON.stringify({
+                            category,
+                            urls,
+                            discover_links: discoverLinks,
+                            max_products: maxProducts
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.detail ??
+                        "웹 수집 요청에 실패했습니다."
+                    );
+                }
+
+                resultSection.style.display = "block";
+
+                document.getElementById(
+                    "summary"
+                ).innerHTML = `
+                    발견: ${data.discovered}개<br>
+                    새로 추가: ${data.created}개<br>
+                    갱신: ${data.updated}개<br>
+                    실패: ${data.failed}개
+                `;
+
+                const resultList =
+                    document.getElementById(
+                        "result-list"
+                    );
+
+                resultList.innerHTML = "";
+
+                for (const item of data.results) {
+                    const container =
+                        document.createElement("div");
+
+                    container.className = "result-item";
+
+                    const statusClass =
+                        item.status === "failed"
+                            ? "failure"
+                            : "success";
+
+                    const name =
+                        item.model_name ??
+                        "제품 정보 없음";
+
+                    const price =
+                        formatPrice(item.price);
+
+                    container.innerHTML = `
+                        <strong class="${statusClass}">
+                            ${item.message}
+                        </strong>
+                        <br>
+
+                        ${name}
+                        ${price ? `- ${price}` : ""}
+                        <br>
+
+                        <a
+                            class="source-link"
+                            href="${item.url}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            수집한 원본 페이지
+                        </a>
+                    `;
+
+                    resultList.appendChild(container);
+                }
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                button.disabled = false;
+                button.textContent =
+                    "웹에서 부품 수집";
+            }
+        }
+
+        button.addEventListener(
+            "click",
+            importProducts
+        );
+    </script>
+</body>
+</html>

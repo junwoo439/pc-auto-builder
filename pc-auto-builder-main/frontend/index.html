@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Auto Builder</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f8;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 28px 20px;
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 0;
+            color: #d1d5db;
+        }
+
+        nav {
+            margin-top: 16px;
+        }
+
+        nav a {
+            margin: 0 8px;
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        main {
+            width: min(1100px, 92%);
+            margin: 30px auto;
+        }
+
+        .builder {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .part-card,
+        #result {
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: white;
+            font-size: 15px;
+        }
+
+        .button-area {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        button {
+            padding: 14px 30px;
+            border: 0;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        #result {
+            display: none;
+            margin-top: 25px;
+        }
+
+        #result.success {
+            border-left: 7px solid #16a34a;
+        }
+
+        #result.failure {
+            border-left: 7px solid #dc2626;
+        }
+
+        .price {
+            color: #2563eb;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .success-text {
+            color: #15803d;
+        }
+
+        .failure-text {
+            color: #b91c1c;
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+    </style>
+
+<style>
+    .pc-tools-navigation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px;
+        background: #111827;
+    }
+
+    .pc-tools-navigation a {
+        padding: 10px 14px;
+        border-radius: 8px;
+        color: white;
+        background: #374151;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .pc-tools-navigation a.highlight {
+        background: #2563eb;
+    }
+</style>
+
+</head>
+
+<body>
+<nav
+    class="pc-tools-navigation"
+    data-pc-tools-nav="true"
+>
+    <a href="/recommend">
+        ?? ??
+    </a>
+
+    <a
+        class="highlight"
+        href="/bulk-import"
+    >
+        ?? ??
+    </a>
+
+    <a
+        class="highlight"
+        href="/backup"
+    >
+        ?? ??
+    </a>
+
+    <a href="/admin">
+        ?? ??
+    </a>
+</nav>
+
+    <header>
+        <h1>PC Auto Builder</h1>
+        <p>컴퓨터 부품 선택 및 호환성 자동 검사</p>
+
+        <nav>
+            <a href="/app">직접 견적</a>
+            <a href="/recommend">자동 추천</a>
+            <a href="/admin">부품 관리</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="builder">
+            <div class="part-card">
+                <label for="cpu">CPU</label>
+                <select id="cpu"></select>
+            </div>
+
+            <div class="part-card">
+                <label for="motherboard">메인보드</label>
+                <select id="motherboard"></select>
+            </div>
+
+            <div class="part-card">
+                <label for="ram">RAM</label>
+                <select id="ram"></select>
+            </div>
+
+            <div class="part-card">
+                <label for="gpu">그래픽카드</label>
+                <select id="gpu"></select>
+            </div>
+
+            <div class="part-card">
+                <label for="case">케이스</label>
+                <select id="case"></select>
+            </div>
+
+            <div class="part-card">
+                <label for="psu">파워</label>
+                <select id="psu"></select>
+            </div>
+        </section>
+
+        <div class="button-area">
+            <button id="check-button" type="button">
+                전체 견적 검사
+            </button>
+        </div>
+
+        <section id="result">
+            <h2>검사 결과</h2>
+            <h3 id="status"></h3>
+
+            <p>
+                총가격:
+                <span id="total-price" class="price"></span>
+            </p>
+
+            <h3>통과 항목</h3>
+            <ul id="checks"></ul>
+
+            <h3>문제 항목</h3>
+            <ul id="errors"></ul>
+        </section>
+    </main>
+
+    <script>
+        const categories = [
+            "cpu",
+            "motherboard",
+            "ram",
+            "gpu",
+            "case",
+            "psu"
+        ];
+
+        const categoryNames = {
+            cpu: "CPU",
+            motherboard: "메인보드",
+            ram: "RAM",
+            gpu: "그래픽카드",
+            case: "케이스",
+            psu: "파워"
+        };
+
+        const button =
+            document.getElementById("check-button");
+
+        const result =
+            document.getElementById("result");
+
+        function formatPrice(value) {
+            return `${Number(value).toLocaleString("ko-KR")}원`;
+        }
+
+        async function loadParts() {
+            try {
+                const response = await fetch("/parts/");
+
+                if (!response.ok) {
+                    throw new Error("부품 목록 요청 실패");
+                }
+
+                const parts = await response.json();
+
+                for (const category of categories) {
+                    const select =
+                        document.getElementById(category);
+
+                    select.innerHTML = "";
+
+                    const filteredParts = parts.filter(
+                        part => part.category === category
+                    );
+
+                    if (filteredParts.length === 0) {
+                        const option =
+                            document.createElement("option");
+
+                        option.value = "";
+                        option.textContent =
+                            `${categoryNames[category]} 없음`;
+
+                        select.appendChild(option);
+                        continue;
+                    }
+
+                    for (const part of filteredParts) {
+                        const option =
+                            document.createElement("option");
+
+                        option.value = part.id;
+                        option.textContent =
+                            `${part.manufacturer} ` +
+                            `${part.model_name} - ` +
+                            formatPrice(part.price);
+
+                        select.appendChild(option);
+                    }
+                }
+            } catch (error) {
+                alert(
+                    "부품을 불러오지 못했습니다.\n" +
+                    error.message
+                );
+            }
+        }
+
+        function selectedId(category) {
+            return Number(
+                document.getElementById(category).value
+            );
+        }
+
+        function renderList(elementId, items, emptyMessage) {
+            const list =
+                document.getElementById(elementId);
+
+            list.innerHTML = "";
+
+            const values =
+                items.length > 0 ? items : [emptyMessage];
+
+            for (const value of values) {
+                const item =
+                    document.createElement("li");
+
+                item.textContent = value;
+                list.appendChild(item);
+            }
+        }
+
+        async function checkBuild() {
+            const requestBody = {
+                cpu_id: selectedId("cpu"),
+                motherboard_id: selectedId("motherboard"),
+                ram_id: selectedId("ram"),
+                gpu_id: selectedId("gpu"),
+                case_id: selectedId("case"),
+                psu_id: selectedId("psu")
+            };
+
+            const invalid = Object.values(
+                requestBody
+            ).some(value => value <= 0);
+
+            if (invalid) {
+                alert("모든 종류의 부품이 필요합니다.");
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = "검사 중...";
+
+            try {
+                const response = await fetch(
+                    "/compatibility/full-build",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+                        body: JSON.stringify(requestBody)
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.detail ??
+                        "호환성 검사에 실패했습니다."
+                    );
+                }
+
+                const status =
+                    document.getElementById("status");
+
+                result.style.display = "block";
+
+                if (data.compatible) {
+                    result.className = "success";
+                    status.className = "success-text";
+                    status.textContent =
+                        "모든 부품이 호환됩니다.";
+                } else {
+                    result.className = "failure";
+                    status.className = "failure-text";
+                    status.textContent =
+                        "호환되지 않는 부품이 있습니다.";
+                }
+
+                document.getElementById(
+                    "total-price"
+                ).textContent =
+                    formatPrice(data.total_price);
+
+                renderList(
+                    "checks",
+                    data.checks,
+                    "통과 항목이 없습니다."
+                );
+
+                renderList(
+                    "errors",
+                    data.errors,
+                    "발견된 문제가 없습니다."
+                );
+
+                result.scrollIntoView({
+                    behavior: "smooth"
+                });
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                button.disabled = false;
+                button.textContent =
+                    "전체 견적 검사";
+            }
+        }
+
+        button.addEventListener(
+            "click",
+            checkBuild
+        );
+
+        loadParts();
+    </script>
+</body>
+</html>

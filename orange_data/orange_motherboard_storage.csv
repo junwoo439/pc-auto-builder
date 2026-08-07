@@ -1,0 +1,289 @@
+﻿pair_type,left_id,left_name,right_id,right_name,storage_type_corrected,storage_form_factor,storage_interface,board_m2_slots,board_sata_ports,compatible
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,3,4,yes
+motherboard_storage,44,MSI MAG B860M 박격포 WIFI,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,3,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,4,4,yes
+motherboard_storage,45,ASUS ROG STRIX B860-G GAMING WIFI 코잇,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,4,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,3,4,yes
+motherboard_storage,46,GIGABYTE B860M AORUS ELITE WIFI6E ICE 피씨디렉트,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,3,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,2,4,yes
+motherboard_storage,47,ASUS PRIME B860M-A-CSM 코잇,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,2,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,4,4,yes
+motherboard_storage,48,GIGABYTE Z890 AORUS ELITE WIFI7 제이씨현,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,4,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,2,4,yes
+motherboard_storage,49,GIGABYTE B860M DS3H 제이씨현,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,2,4,yes
+motherboard_storage,50,MSI PRO B760M-A DDR4 II,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,2,4,yes
+motherboard_storage,51,GIGABYTE B760M AORUS ELITE D4 GEN5 피씨디렉트,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,2,4,yes
+motherboard_storage,52,GIGABYTE B760M DS3H D4 제이씨현,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,2,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,3,4,yes
+motherboard_storage,53,ASRock B760M Pro RS D5 에즈윈,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,3,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,2,4,yes
+motherboard_storage,54,ASUS PRIME B760M-A D4 STCOM,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,56,삼성전자 9100 PRO M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,57,키오시아 EXCERIA PLUS G4 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,58,Sandisk Optimus GX PRO 8100 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,59,SK하이닉스 Platinum P51 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,60,Western Digital WD BLACK SN8100 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,61,키오시아 EXCERIA PRO G2 M.2 NVMe (2TB),ssd,M.2 (2280),PCIE5.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,62,ESSENCORE KLEVV CRAS C910G M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,63,삼성전자 990 PRO M.2 NVMe (2TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,64,ADATA LEGEND 900 M.2 NVMe 파인인포 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,65,Western Digital WD BLACK SN850X M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,66,삼성전자 990 EVO Plus M.2 NVMe (1TB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,67,삼성전자 PM9A1 M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE4.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,68,SK하이닉스 Gold P31 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,69,타무즈 M740Q M.2 NVMe 벌크 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,70,삼성전자 PM981a M.2 NVMe 중고 (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,71,PATRIOT P300 M.2 NVMe (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,72,Apacer AS2280P4X M.2 NVMe (512GB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,73,COLORFUL CN600 PRO M.2 NVMe 디앤디컴 (1TB),ssd,M.2 (2280),PCIE3.0X4,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,74,"Seagate BarraCuda 5400/256M (8TB, ST8000DM004)",hdd,,SATA3,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,75,"Western Digital WD Blue 5640/256M (8TB, WD80EAAZ)",hdd,,SATA3,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,76,"Seagate BarraCuda 7200/256M (2TB, ST2000DM008)",hdd,,SATA3,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,77,"Seagate BarraCuda 7200/512M (24TB, ST24000DM001)",hdd,,SATA3,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,78,"Western Digital WD Blue 7200/256M (2TB, WD20EZBX)",hdd,,SATA3,2,4,yes
+motherboard_storage,55,ASUS PRIME H610M-A D4 STCOM,79,"도시바 DT01 7200/64M (2TB, DT01ACA200)",hdd,,SATA3,2,4,yes

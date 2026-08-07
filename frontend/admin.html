@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PC 부품 관리</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Arial,
+                "Noto Sans KR",
+                sans-serif;
+            color: #172033;
+            background: #f3f5f8;
+        }
+
+        header {
+            padding: 28px 20px;
+            text-align: center;
+            color: white;
+            background: #111827;
+        }
+
+        main {
+            width: min(1450px, 96%);
+            margin: 24px auto;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        nav a {
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: white;
+            background: #374151;
+            text-decoration: none;
+        }
+
+        nav a.important {
+            background: #2563eb;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            padding: 22px;
+            background: white;
+            border-radius: 14px;
+            box-shadow:
+                0 4px 16px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 130px;
+            font-family: monospace;
+            resize: vertical;
+        }
+
+        button {
+            padding: 11px 15px;
+            border: 0;
+            border-radius: 8px;
+            color: white;
+            background: #2563eb;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button.secondary {
+            background: #475569;
+        }
+
+        button.danger {
+            background: #c9362b;
+        }
+
+        button.success {
+            background: #15803d;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            background: #9ca3af;
+        }
+
+        .form-buttons,
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .toolbar {
+            display: grid;
+            grid-template-columns:
+                minmax(180px, 1fr)
+                minmax(150px, 220px);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .selection-info {
+            margin: 12px 0;
+            padding: 12px;
+            border-radius: 8px;
+            background: #eff6ff;
+            font-weight: bold;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1050px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background: #f8fafc;
+        }
+
+        td.checkbox-cell,
+        th.checkbox-cell {
+            width: 55px;
+            text-align: center;
+        }
+
+        input[type="checkbox"] {
+            width: 19px;
+            height: 19px;
+            cursor: pointer;
+        }
+
+        .manage-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .manage-buttons button {
+            padding: 9px 12px;
+        }
+
+        .price {
+            white-space: nowrap;
+        }
+
+        .source-link {
+            color: #2563eb;
+            word-break: break-all;
+        }
+
+        .empty {
+            padding: 30px;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        #editing-notice {
+            display: none;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            color: #92400e;
+            background: #fffbeb;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+            .toolbar {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/static/neo-theme.css?v=20260807115137">
+</head>
+
+<body>
+    <header>
+        <h1>PC 부품 관리</h1>
+
+        <p>
+            부품 추가·수정·백업·일괄 선택 관리
+        </p>
+    </header>
+
+    <main>
+        <nav>
+            <a href="/app">부품 선택</a>
+            <a href="/recommend">자동 추천</a>
+
+            <a
+                class="important"
+                href="/bulk-import"
+            >
+                대량 수집
+            </a>
+
+            <a
+                class="important"
+                href="/backup"
+            >
+                부품 백업
+            </a>
+
+            <a href="/import">개별 웹 수집</a>
+        </nav>
+
+        <section class="card">
+            <h2>관리자 인증</h2>
+
+            <label for="admin-key">
+                관리자 키
+            </label>
+
+            <input
+                id="admin-key"
+                type="password"
+                autocomplete="current-password"
+                placeholder=".env의 ADMIN_API_KEY 값"
+            >
+        </section>
+
+        <section class="card">
+            <h2 id="form-title">
+                새 부품 추가
+            </h2>
+
+            <div id="editing-notice"></div>
+
+            <div class="grid">
+                <div>
+                    <label for="category">
+                        종류
+                    </label>
+
+                    <select id="category">
+                        <option value="cpu">CPU</option>
+
+                        <option value="motherboard">
+                            메인보드
+                        </option>
+
+                        <option value="ram">RAM</option>
+
+                        <option value="gpu">
+                            그래픽카드
+                        </option>
+
+                        <option value="case">
+                            케이스
+                        </option>
+
+                        <option value="psu">
+                            파워
+                        </option>
+
+                        <option value="cooler">
+                            쿨러
+                        </option>
+
+                        <option value="storage">
+                            저장장치
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="manufacturer">
+                        제조사
+                    </label>
+
+                    <input
+                        id="manufacturer"
+                        type="text"
+                    >
+                </div>
+
+                <div>
+                    <label for="model-name">
+                        제품명
+                    </label>
+
+                    <input
+                        id="model-name"
+                        type="text"
+                    >
+                </div>
+
+                <div>
+                    <label for="price">
+                        가격
+                    </label>
+
+                    <input
+                        id="price"
+                        type="number"
+                        min="0"
+                        value="0"
+                    >
+                </div>
+            </div>
+
+            <label for="specifications">
+                상세 규격 JSON
+            </label>
+
+            <textarea id="specifications">{
+}</textarea>
+
+            <div class="form-buttons">
+                <button
+                    id="save-button"
+                    type="button"
+                >
+                    부품 추가
+                </button>
+
+                <button
+                    id="cancel-edit-button"
+                    class="secondary"
+                    type="button"
+                    hidden
+                >
+                    수정 취소
+                </button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>등록된 부품</h2>
+
+            <div class="toolbar">
+                <input
+                    id="search-input"
+                    type="search"
+                    placeholder="제품명 또는 제조사 검색"
+                >
+
+                <select id="category-filter">
+                    <option value="">
+                        모든 종류
+                    </option>
+
+                    <option value="cpu">CPU</option>
+
+                    <option value="motherboard">
+                        메인보드
+                    </option>
+
+                    <option value="ram">RAM</option>
+
+                    <option value="gpu">
+                        그래픽카드
+                    </option>
+
+                    <option value="case">
+                        케이스
+                    </option>
+
+                    <option value="psu">
+                        파워
+                    </option>
+
+                    <option value="cooler">
+                        쿨러
+                    </option>
+
+                    <option value="storage">
+                        저장장치
+                    </option>
+                </select>
+            </div>
+
+            <div
+                id="selection-info"
+                class="selection-info"
+            >
+                선택한 부품: 0개
+            </div>
+
+            <div class="action-buttons">
+                <button
+                    id="refresh-button"
+                    class="secondary"
+                    type="button"
+                >
+                    목록 새로고침
+                </button>
+
+                <button
+                    id="update-selected-specs-button"
+                    type="button"
+                >
+                    선택 부품 상세 규격 갱신
+                </button>
+
+                <button
+                    id="update-all-specs-button"
+                    class="success"
+                    type="button"
+                >
+                    전체 부품 상세 규격 갱신
+                </button>
+
+
+                <button
+                    id="download-all-button"
+                    class="success"
+                    type="button"
+                >
+                    전체 부품 JSON 다운로드
+                </button>
+
+                <button
+                    id="download-selected-button"
+                    type="button"
+                    disabled
+                >
+                    선택 부품 JSON 다운로드
+                </button>
+
+                <button
+                    id="delete-selected-button"
+                    class="danger"
+                    type="button"
+                    disabled
+                >
+                    선택 부품 삭제
+                </button>
+            </div>
+
+            <div
+                id="spec-update-status"
+                style="
+                    margin: 16px 0;
+                    padding: 14px;
+                    border-radius: 8px;
+                    background: #eff6ff;
+                    line-height: 1.7;
+                    white-space: pre-wrap;
+                "
+                hidden
+            ></div>
+
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="checkbox-cell">
+                                <input
+                                    id="select-all"
+                                    type="checkbox"
+                                    title="현재 표시된 부품 전체 선택"
+                                >
+                            </th>
+
+                            <th>ID</th>
+                            <th>종류</th>
+                            <th>제조사</th>
+                            <th>제품명</th>
+                            <th>가격</th>
+                            <th>출처</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="parts-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const categoryNames = {
+            cpu: "CPU",
+            motherboard: "메인보드",
+            ram: "RAM",
+            gpu: "그래픽카드",
+            case: "케이스",
+            psu: "파워",
+            cooler: "쿨러",
+            storage: "저장장치"
+        };
+
+        let parts = [];
+        let editingPartId = null;
+
+        const selectedIds = new Set();
+
+        const adminKeyInput =
+            document.getElementById("admin-key");
+
+        const partsBody =
+            document.getElementById("parts-body");
+
+        const selectAll =
+            document.getElementById("select-all");
+
+        const selectionInfo =
+            document.getElementById("selection-info");
+
+        const downloadSelectedButton =
+            document.getElementById(
+                "download-selected-button"
+            );
+
+        const deleteSelectedButton =
+            document.getElementById(
+                "delete-selected-button"
+            );
+
+        adminKeyInput.value =
+            sessionStorage.getItem(
+                "pcAdminKey"
+            ) ?? "";
+
+        adminKeyInput.addEventListener(
+            "input",
+            () => {
+                sessionStorage.setItem(
+                    "pcAdminKey",
+                    adminKeyInput.value
+                );
+            }
+        );
+
+        function getAdminKey() {
+            const key =
+                adminKeyInput.value.trim();
+
+            if (!key) {
+                alert("관리자 키를 입력하세요.");
+                return null;
+            }
+
+            return key;
+        }
+
+        function parseSpecifications(value) {
+            if (
+                value
+                && typeof value === "object"
+            ) {
+                return value;
+            }
+
+            if (typeof value === "string") {
+                try {
+                    return JSON.parse(value);
+                } catch {
+                    return {};
+                }
+            }
+
+            return {};
+        }
+
+        function formatPrice(value) {
+            return (
+                Number(value)
+                    .toLocaleString("ko-KR")
+                + "원"
+            );
+        }
+
+        function getFilteredParts() {
+            const searchValue =
+                document.getElementById(
+                    "search-input"
+                ).value.trim().toLowerCase();
+
+            const categoryValue =
+                document.getElementById(
+                    "category-filter"
+                ).value;
+
+            return parts.filter(part => {
+                const matchesCategory =
+                    !categoryValue
+                    || part.category
+                        === categoryValue;
+
+                const searchableText = (
+                    `${part.manufacturer} `
+                    + `${part.model_name}`
+                ).toLowerCase();
+
+                const matchesSearch =
+                    !searchValue
+                    || searchableText.includes(
+                        searchValue
+                    );
+
+                return (
+                    matchesCategory
+                    && matchesSearch
+                );
+            });
+        }
+
+        function updateSelectionState() {
+            const visibleParts =
+                getFilteredParts();
+
+            const visibleIds =
+                visibleParts.map(part => part.id);
+
+            const selectedVisibleCount =
+                visibleIds.filter(
+                    id => selectedIds.has(id)
+                ).length;
+
+            selectAll.checked = (
+                visibleIds.length > 0
+                && selectedVisibleCount
+                    === visibleIds.length
+            );
+
+            selectAll.indeterminate = (
+                selectedVisibleCount > 0
+                && selectedVisibleCount
+                    < visibleIds.length
+            );
+
+            selectionInfo.textContent =
+                `선택한 부품: ${selectedIds.size}개`;
+
+            const hasSelection =
+                selectedIds.size > 0;
+
+            downloadSelectedButton.disabled =
+                !hasSelection;
+
+            deleteSelectedButton.disabled =
+                !hasSelection;
+        }
+
+        function createTextCell(value) {
+            const cell =
+                document.createElement("td");
+
+            cell.textContent = value;
+
+            return cell;
+        }
+
+        function renderParts() {
+            const filteredParts =
+                getFilteredParts();
+
+            partsBody.innerHTML = "";
+
+            if (filteredParts.length === 0) {
+                const row =
+                    document.createElement("tr");
+
+                const cell =
+                    document.createElement("td");
+
+                cell.colSpan = 8;
+                cell.className = "empty";
+                cell.textContent =
+                    "표시할 부품이 없습니다.";
+
+                row.appendChild(cell);
+                partsBody.appendChild(row);
+
+                updateSelectionState();
+                return;
+            }
+
+            for (const part of filteredParts) {
+                const row =
+                    document.createElement("tr");
+
+                const checkboxCell =
+                    document.createElement("td");
+
+                checkboxCell.className =
+                    "checkbox-cell";
+
+                const checkbox =
+                    document.createElement("input");
+
+                checkbox.type = "checkbox";
+                checkbox.checked =
+                    selectedIds.has(part.id);
+
+                checkbox.addEventListener(
+                    "change",
+                    () => {
+                        if (checkbox.checked) {
+                            selectedIds.add(part.id);
+                        } else {
+                            selectedIds.delete(part.id);
+                        }
+
+                        updateSelectionState();
+                    }
+                );
+
+                checkboxCell.appendChild(checkbox);
+
+                row.appendChild(checkboxCell);
+                row.appendChild(
+                    createTextCell(part.id)
+                );
+
+                row.appendChild(
+                    createTextCell(
+                        categoryNames[
+                            part.category
+                        ] ?? part.category
+                    )
+                );
+
+                row.appendChild(
+                    createTextCell(
+                        part.manufacturer
+                    )
+                );
+
+                row.appendChild(
+                    createTextCell(
+                        part.model_name
+                    )
+                );
+
+                const priceCell =
+                    createTextCell(
+                        formatPrice(part.price)
+                    );
+
+                priceCell.className = "price";
+                row.appendChild(priceCell);
+
+                const sourceCell =
+                    document.createElement("td");
+
+                const specifications =
+                    parseSpecifications(
+                        part.specifications
+                    );
+
+                const sourceUrl =
+                    specifications.source_url
+                    ?? specifications
+                        .price_source_url;
+
+                if (sourceUrl) {
+                    const sourceLink =
+                        document.createElement("a");
+
+                    sourceLink.href = sourceUrl;
+                    sourceLink.target = "_blank";
+                    sourceLink.rel =
+                        "noopener noreferrer";
+
+                    sourceLink.className =
+                        "source-link";
+
+                    sourceLink.textContent =
+                        "원본 페이지";
+
+                    sourceCell.appendChild(
+                        sourceLink
+                    );
+                } else {
+                    sourceCell.textContent = "-";
+                }
+
+                row.appendChild(sourceCell);
+
+                const manageCell =
+                    document.createElement("td");
+
+                const manageButtons =
+                    document.createElement("div");
+
+                manageButtons.className =
+                    "manage-buttons";
+
+                const editButton =
+                    document.createElement("button");
+
+                editButton.type = "button";
+                editButton.textContent = "수정";
+
+                editButton.addEventListener(
+                    "click",
+                    () => startEdit(part)
+                );
+
+                const deleteButton =
+                    document.createElement("button");
+
+                deleteButton.type = "button";
+                deleteButton.textContent = "삭제";
+                deleteButton.className = "danger";
+
+                deleteButton.addEventListener(
+                    "click",
+                    () => deleteSinglePart(
+                        part
+                    )
+                );
+
+                manageButtons.append(
+                    editButton,
+                    deleteButton
+                );
+
+                manageCell.appendChild(
+                    manageButtons
+                );
+
+                row.appendChild(manageCell);
+                partsBody.appendChild(row);
+            }
+
+            updateSelectionState();
+        }
+
+        async function readError(response) {
+            try {
+                const data = await response.json();
+
+                return (
+                    data.detail
+                    ?? "요청 처리에 실패했습니다."
+                );
+            } catch {
+                return "요청 처리에 실패했습니다.";
+            }
+        }
+
+        async function loadParts() {
+            try {
+                const response = await fetch(
+                    "/parts/"
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        await readError(response)
+                    );
+                }
+
+                parts = await response.json();
+
+                const existingIds =
+                    new Set(
+                        parts.map(part => part.id)
+                    );
+
+                for (const selectedId of [
+                    ...selectedIds
+                ]) {
+                    if (
+                        !existingIds.has(
+                            selectedId
+                        )
+                    ) {
+                        selectedIds.delete(
+                            selectedId
+                        );
+                    }
+                }
+
+                renderParts();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function resetForm() {
+            editingPartId = null;
+
+            document.getElementById(
+                "form-title"
+            ).textContent = "새 부품 추가";
+
+            document.getElementById(
+                "editing-notice"
+            ).style.display = "none";
+
+            document.getElementById(
+                "save-button"
+            ).textContent = "부품 추가";
+
+            document.getElementById(
+                "cancel-edit-button"
+            ).hidden = true;
+
+            document.getElementById(
+                "category"
+            ).value = "cpu";
+
+            document.getElementById(
+                "manufacturer"
+            ).value = "";
+
+            document.getElementById(
+                "model-name"
+            ).value = "";
+
+            document.getElementById(
+                "price"
+            ).value = "0";
+
+            document.getElementById(
+                "specifications"
+            ).value = "{\n}";
+        }
+
+        function startEdit(part) {
+            editingPartId = part.id;
+
+            document.getElementById(
+                "form-title"
+            ).textContent = "부품 수정";
+
+            const editingNotice =
+                document.getElementById(
+                    "editing-notice"
+                );
+
+            editingNotice.style.display =
+                "block";
+
+            editingNotice.textContent =
+                `ID ${part.id} · `
+                + `${part.model_name} 수정 중`;
+
+            document.getElementById(
+                "save-button"
+            ).textContent = "수정 저장";
+
+            document.getElementById(
+                "cancel-edit-button"
+            ).hidden = false;
+
+            document.getElementById(
+                "category"
+            ).value = part.category;
+
+            document.getElementById(
+                "manufacturer"
+            ).value = part.manufacturer;
+
+            document.getElementById(
+                "model-name"
+            ).value = part.model_name;
+
+            document.getElementById(
+                "price"
+            ).value = part.price;
+
+            document.getElementById(
+                "specifications"
+            ).value = JSON.stringify(
+                parseSpecifications(
+                    part.specifications
+                ),
+                null,
+                2
+            );
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        async function savePart() {
+            const adminKey = getAdminKey();
+
+            if (!adminKey) {
+                return;
+            }
+
+            const manufacturer =
+                document.getElementById(
+                    "manufacturer"
+                ).value.trim();
+
+            const modelName =
+                document.getElementById(
+                    "model-name"
+                ).value.trim();
+
+            if (!manufacturer || !modelName) {
+                alert(
+                    "제조사와 제품명을 입력하세요."
+                );
+
+                return;
+            }
+
+            let specifications;
+
+            try {
+                specifications = JSON.parse(
+                    document.getElementById(
+                        "specifications"
+                    ).value
+                );
+            } catch {
+                alert(
+                    "상세 규격 JSON 형식이 올바르지 않습니다."
+                );
+
+                return;
+            }
+
+            const payload = {
+                category:
+                    document.getElementById(
+                        "category"
+                    ).value,
+
+                manufacturer,
+
+                model_name: modelName,
+
+                price: Number(
+                    document.getElementById(
+                        "price"
+                    ).value
+                ),
+
+                specifications
+            };
+
+            const isEditing =
+                editingPartId !== null;
+
+            const url = isEditing
+                ? `/parts/${editingPartId}`
+                : "/parts/";
+
+            const method = isEditing
+                ? "PUT"
+                : "POST";
+
+            try {
+                const response = await fetch(
+                    url,
+                    {
+                        method,
+
+                        headers: {
+                            "Content-Type":
+                                "application/json",
+
+                            "X-Admin-Key":
+                                adminKey
+                        },
+
+                        body: JSON.stringify(
+                            payload
+                        )
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        await readError(response)
+                    );
+                }
+
+                resetForm();
+                await loadParts();
+
+                alert(
+                    isEditing
+                        ? "부품을 수정했습니다."
+                        : "부품을 추가했습니다."
+                );
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        async function deleteSinglePart(part) {
+            const adminKey = getAdminKey();
+
+            if (!adminKey) {
+                return;
+            }
+
+            if (
+                !confirm(
+                    `${part.model_name}을 삭제할까요?`
+                )
+            ) {
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `/parts/${part.id}`,
+                    {
+                        method: "DELETE",
+
+                        headers: {
+                            "X-Admin-Key":
+                                adminKey
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        await readError(response)
+                    );
+                }
+
+                selectedIds.delete(part.id);
+                await loadParts();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        async function downloadResponse(
+            response,
+            defaultFilename
+        ) {
+            if (!response.ok) {
+                throw new Error(
+                    await readError(response)
+                );
+            }
+
+            const blob = await response.blob();
+
+            const disposition =
+                response.headers.get(
+                    "Content-Disposition"
+                ) ?? "";
+
+            const match =
+                disposition.match(
+                    /filename="([^"]+)"/
+                );
+
+            const filename =
+                match?.[1] ?? defaultFilename;
+
+            const objectUrl =
+                URL.createObjectURL(blob);
+
+            const link =
+                document.createElement("a");
+
+            link.href = objectUrl;
+            link.download = filename;
+
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            URL.revokeObjectURL(objectUrl);
+        }
+
+        async function downloadAllParts() {
+            const adminKey = getAdminKey();
+
+            if (!adminKey) {
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    "/parts-bulk/export-all",
+                    {
+                        headers: {
+                            "X-Admin-Key":
+                                adminKey
+                        }
+                    }
+                );
+
+                await downloadResponse(
+                    response,
+                    "all-pc-parts.json"
+                );
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        async function downloadSelectedParts() {
+            const adminKey = getAdminKey();
+
+            if (!adminKey) {
+                return;
+            }
+
+            if (selectedIds.size === 0) {
+                alert("부품을 선택하세요.");
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    "/parts-bulk/export-selected",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json",
+
+                            "X-Admin-Key":
+                                adminKey
+                        },
+
+                        body: JSON.stringify({
+                            part_ids: [
+                                ...selectedIds
+                            ]
+                        })
+                    }
+                );
+
+                await downloadResponse(
+                    response,
+                    "selected-pc-parts.json"
+                );
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        async function deleteSelectedParts() {
+            const adminKey = getAdminKey();
+
+            if (!adminKey) {
+                return;
+            }
+
+            if (selectedIds.size === 0) {
+                alert("삭제할 부품을 선택하세요.");
+                return;
+            }
+
+            if (
+                !confirm(
+                    `선택한 ${selectedIds.size}개의 `
+                    + "부품을 삭제할까요?"
+                )
+            ) {
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    "/parts-bulk/delete-selected",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json",
+
+                            "X-Admin-Key":
+                                adminKey
+                        },
+
+                        body: JSON.stringify({
+                            part_ids: [
+                                ...selectedIds
+                            ]
+                        })
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        await readError(response)
+                    );
+                }
+
+                const data = await response.json();
+
+                selectedIds.clear();
+                await loadParts();
+
+                alert(data.message);
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function showSpecUpdateStatus(
+            message
+        ) {
+            const status =
+                document.getElementById(
+                    "spec-update-status"
+                );
+
+            status.hidden = false;
+            status.textContent = message;
+        }
+
+        async function runSpecUpdate(
+            mode
+        ) {
+            const adminKey = getAdminKey();
+
+            if (!adminKey) {
+                return;
+            }
+
+            if (
+                mode === "selected"
+                && selectedIds.size === 0
+            ) {
+                alert("갱신할 부품을 선택하세요.");
+                return;
+            }
+
+            const selectedButton =
+                document.getElementById(
+                    "update-selected-specs-button"
+                );
+
+            const allButton =
+                document.getElementById(
+                    "update-all-specs-button"
+                );
+
+            selectedButton.disabled = true;
+            allButton.disabled = true;
+
+            showSpecUpdateStatus(
+                "상세 규격을 갱신하고 있습니다.\n"
+                + "전체 갱신은 약 1~3분 걸릴 수 있습니다."
+            );
+
+            const url = (
+                mode === "selected"
+                    ? "/spec-updates/selected"
+                    : "/spec-updates/all"
+            );
+
+            const options = {
+                method: "POST",
+
+                headers: {
+                    "X-Admin-Key": adminKey
+                }
+            };
+
+            if (mode === "selected") {
+                options.headers[
+                    "Content-Type"
+                ] = "application/json";
+
+                options.body = JSON.stringify({
+                    part_ids: [
+                        ...selectedIds
+                    ]
+                });
+            }
+
+            try {
+                const response = await fetch(
+                    url,
+                    options
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        await readError(response)
+                    );
+                }
+
+                const data = await response.json();
+
+                const errorText = (
+                    Array.isArray(data.errors)
+                    && data.errors.length > 0
+                )
+                    ? (
+                        "\n최근 오류: "
+                        + data.errors[0].message
+                    )
+                    : "";
+
+                showSpecUpdateStatus(
+                    [
+                        `전체: ${data.total}개`,
+                        `갱신 성공: ${data.updated}개`,
+                        `실패: ${data.failed}개`,
+                        (
+                            "시드 자동 저장: "
+                            + (
+                                data.seed_saved
+                                    ? "완료"
+                                    : "실패"
+                            )
+                        )
+                    ].join("\n")
+                    + errorText
+                );
+
+                await loadParts();
+
+            } catch (error) {
+                showSpecUpdateStatus(
+                    "오류: " + error.message
+                );
+
+            } finally {
+                selectedButton.disabled = false;
+                allButton.disabled = false;
+            }
+        }
+
+
+        selectAll.addEventListener(
+            "change",
+            () => {
+                const visibleParts =
+                    getFilteredParts();
+
+                for (const part of visibleParts) {
+                    if (selectAll.checked) {
+                        selectedIds.add(part.id);
+                    } else {
+                        selectedIds.delete(part.id);
+                    }
+                }
+
+                renderParts();
+            }
+        );
+
+        document.getElementById(
+            "search-input"
+        ).addEventListener(
+            "input",
+            renderParts
+        );
+
+        document.getElementById(
+            "category-filter"
+        ).addEventListener(
+            "change",
+            renderParts
+        );
+
+        document.getElementById(
+            "save-button"
+        ).addEventListener(
+            "click",
+            savePart
+        );
+
+        document.getElementById(
+            "cancel-edit-button"
+        ).addEventListener(
+            "click",
+            resetForm
+        );
+
+        document.getElementById(
+            "refresh-button"
+        ).addEventListener(
+            "click",
+            loadParts
+        );
+
+        document.getElementById(
+            "download-all-button"
+        ).addEventListener(
+            "click",
+            downloadAllParts
+        );
+
+        downloadSelectedButton.addEventListener(
+            "click",
+            downloadSelectedParts
+        );
+
+        deleteSelectedButton.addEventListener(
+            "click",
+            deleteSelectedParts
+        );
+
+        document.getElementById(
+            "update-selected-specs-button"
+        ).addEventListener(
+            "click",
+            () => runSpecUpdate(
+                "selected"
+            )
+        );
+
+        document.getElementById(
+            "update-all-specs-button"
+        ).addEventListener(
+            "click",
+            () => runSpecUpdate(
+                "all"
+            )
+        );
+
+
+        resetForm();
+        loadParts();
+    </script>
+    <script src="/static/neo-theme.js?v=20260807115137"></script>
+</body>
+</html>

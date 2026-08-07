@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+**/.venv
+**/__pycache__
+**/*.pyc
+.env
+backend/.env
+backend/pc_parts.db
+backend/backups
+*.db
+*.sqlite
+*.sqlite3
+*.zip
+*.bak*
+*.before_*

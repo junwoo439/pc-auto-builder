@@ -1,0 +1,14 @@
+.git
+.github
+**/.venv
+**/__pycache__
+**/*.pyc
+.env
+backend/.env
+backend/pc_parts.db
+*.db
+*.sqlite
+*.sqlite3
+*.zip
+*.before_*
+*.before_public_deploy_*

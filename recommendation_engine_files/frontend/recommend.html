@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>상세 규격 기반 PC 자동 추천</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Arial,
+                "Noto Sans KR",
+                sans-serif;
+            color: #172033;
+            background: #f3f5f8;
+        }
+
+        header {
+            padding: 34px 20px;
+            text-align: center;
+            color: white;
+            background: #111827;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        header p {
+            margin: 0;
+            color: #dbeafe;
+        }
+
+        main {
+            width: min(1050px, 94%);
+            margin: 24px auto 50px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        nav a {
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: white;
+            background: #374151;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a.highlight {
+            background: #2563eb;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            padding: 22px;
+            background: white;
+            border-radius: 14px;
+            box-shadow:
+                0 4px 16px
+                rgba(0, 0, 0, 0.08);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            background: white;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 17px;
+        }
+
+        .checkbox-row input {
+            width: 18px;
+            height: 18px;
+        }
+
+        .checkbox-row label {
+            font-weight: bold;
+        }
+
+
+        .equipment-section {
+            margin-top: 20px;
+        }
+
+        .equipment-section h3 {
+            margin: 0 0 10px;
+        }
+
+        .equipment-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .equipment-actions button {
+            width: auto;
+            padding: 9px 12px;
+            background: #475569;
+            font-size: 14px;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+        }
+
+        .equipment-option {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            background: #f8fafc;
+            cursor: pointer;
+        }
+
+        .equipment-option:has(input:checked) {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .equipment-option input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+        }
+
+        .equipment-option span {
+            font-weight: bold;
+        }
+
+        .dimension-grid.disabled {
+            opacity: 0.45;
+        }
+
+        .help {
+            margin: 16px 0;
+            padding: 13px;
+            border-radius: 8px;
+            line-height: 1.65;
+            background: #eff6ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: 0;
+            border-radius: 9px;
+            color: white;
+            background: #2563eb;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #94a3b8;
+            cursor: wait;
+        }
+
+        #result {
+            display: none;
+        }
+
+        #message {
+            padding: 13px;
+            border-radius: 8px;
+            line-height: 1.65;
+            background: #ecfdf5;
+        }
+
+        #message.error {
+            color: #991b1b;
+            background: #fef2f2;
+        }
+
+        .part {
+            margin: 12px 0;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .part-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .part-category {
+            display: inline-block;
+            margin-bottom: 5px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: #1d4ed8;
+            background: #dbeafe;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .part-name {
+            font-weight: bold;
+            line-height: 1.55;
+        }
+
+        .part-price {
+            white-space: nowrap;
+            color: #b45309;
+            font-weight: bold;
+        }
+
+        .spec-line {
+            margin-top: 9px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .source-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .summary {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 10px;
+            background: #f8fafc;
+            line-height: 1.8;
+        }
+
+        .summary strong {
+            font-size: 18px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #dcfce7;
+            color: #166534;
+            font-weight: bold;
+        }
+
+        .status-badge.partial {
+            color: #92400e;
+            background: #fef3c7;
+        }
+
+        .result-section {
+            margin-top: 22px;
+        }
+
+        .result-section h3 {
+            margin-bottom: 10px;
+        }
+
+        .check-list,
+        .warning-list,
+        .suggestion-list {
+            margin: 0;
+            padding-left: 22px;
+            line-height: 1.8;
+        }
+
+        .warning-box {
+            padding: 15px;
+            border-radius: 9px;
+            color: #92400e;
+            background: #fffbeb;
+        }
+
+        .data-status {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .data-status-item {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .data-status-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 640px) {
+            .part-head {
+                display: block;
+            }
+
+            .part-price {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>상세 규격 기반 PC 자동 추천</h1>
+
+        <p>
+            소켓·DDR 규격·케이스 크기·GPU 길이·파워 용량을
+            확인한 뒤 예산에 맞는 조합을 찾습니다.
+        </p>
+    </header>
+
+    <main>
+        <nav>
+            <a href="/app">부품 선택</a>
+            <a class="highlight" href="/recommend">자동 추천</a>
+            <a href="/admin">부품 관리</a>
+            <a href="/bulk-import">대량 수집</a>
+            <a href="/backup">부품 백업</a>
+        </nav>
+
+        <section class="card">
+            <h2>추천 조건</h2>
+
+
+            <div class="grid">
+                <div class="input-group">
+                    <label for="budget">선택 장비 총예산(원)</label>
+
+                    <input
+                        id="budget"
+                        type="number"
+                        min="10000"
+                        step="10000"
+                        value="1100000"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="purpose">사용 용도</label>
+
+                    <select id="purpose">
+                        <option value="gaming">게임용</option>
+                        <option value="balanced">균형형</option>
+                        <option value="office">사무·학습용</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="equipment-section">
+                <h3>추천받을 장비 선택</h3>
+
+                <div class="equipment-actions">
+                    <button
+                        id="select-core"
+                        type="button"
+                    >
+                        핵심 6개 선택
+                    </button>
+
+                    <button
+                        id="select-all-equipment"
+                        type="button"
+                    >
+                        8개 전체 선택
+                    </button>
+
+                    <button
+                        id="clear-equipment"
+                        type="button"
+                    >
+                        전체 해제
+                    </button>
+                </div>
+
+                <div class="equipment-grid">
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="cpu"
+                            checked
+                        >
+                        <span>CPU</span>
+                    </label>
+
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="motherboard"
+                            checked
+                        >
+                        <span>메인보드</span>
+                    </label>
+
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="ram"
+                            checked
+                        >
+                        <span>RAM</span>
+                    </label>
+
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="gpu"
+                            checked
+                        >
+                        <span>그래픽카드</span>
+                    </label>
+
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="case"
+                            checked
+                        >
+                        <span>케이스</span>
+                    </label>
+
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="psu"
+                            checked
+                        >
+                        <span>파워</span>
+                    </label>
+
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="storage"
+                        >
+                        <span>저장장치</span>
+                    </label>
+
+                    <label class="equipment-option">
+                        <input
+                            class="equipment-checkbox"
+                            type="checkbox"
+                            value="cooler"
+                        >
+                        <span>CPU 쿨러</span>
+                    </label>
+                </div>
+            </div>
+
+            <div
+                id="dimension-grid"
+                class="grid dimension-grid"
+            >
+                <div class="input-group">
+                    <label for="max-width">
+                        케이스 최대 가로·폭(mm)
+                    </label>
+
+                    <input
+                        id="max-width"
+                        type="number"
+                        min="1"
+                        value="230"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="max-height">
+                        케이스 최대 세로·높이(mm)
+                    </label>
+
+                    <input
+                        id="max-height"
+                        type="number"
+                        min="1"
+                        value="450"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="max-depth">
+                        케이스 최대 앞뒤·깊이(mm)
+                    </label>
+
+                    <input
+                        id="max-depth"
+                        type="number"
+                        min="1"
+                        value="450"
+                    >
+                </div>
+            </div>
+
+            <div class="checkbox-row">
+                <input
+                    id="allow-used"
+                    type="checkbox"
+                >
+
+                <label for="allow-used">
+                    중고 부품도 추천 후보에 포함
+                </label>
+            </div>
+
+            <p class="help">
+                체크한 장비만 추천 결과에 포함됩니다. 서로 연결되는 장비를
+                함께 선택하면 소켓·DDR 규격·길이·파워 용량을 검사하며,
+                연결 상대를 선택하지 않은 항목은 경고와 함께 개별 추천합니다.
+            </p>
+
+            <button id="recommend-button" type="button">
+                선택 장비 호환성 검사 후 추천
+            </button>
+        </section>
+
+        <section id="result" class="card">
+            <h2>추천 결과</h2>
+
+            <p id="message"></p>
+
+            <div id="verification"></div>
+            <div id="parts"></div>
+            <div id="summary" class="summary"></div>
+            <div id="checks" class="result-section"></div>
+            <div id="warnings" class="result-section"></div>
+            <div id="failure-details" class="result-section"></div>
+        </section>
+    </main>
+
+    <script>
+        const button =
+            document.getElementById("recommend-button");
+
+        const result =
+            document.getElementById("result");
+
+        const categoryNames = {
+            cpu: "CPU",
+            motherboard: "메인보드",
+            ram: "RAM",
+            gpu: "그래픽카드",
+            case: "케이스",
+            psu: "파워",
+            storage: "저장장치",
+            cooler: "CPU 쿨러"
+        };
+
+        const dataLabels = {
+            cpu: "CPU",
+            motherboard: "메인보드",
+            ram: "RAM",
+            gpu: "그래픽카드",
+            case: "케이스",
+            psu: "파워",
+            storage: "저장장치",
+            cooler: "쿨러"
+        };
+
+        function formatPrice(price) {
+            return (
+                Number(price).toLocaleString("ko-KR")
+                + "원"
+            );
+        }
+
+        function getNumber(id) {
+            return Number(
+                document.getElementById(id).value
+            );
+        }
+
+        function value(specs, ...keys) {
+            for (const key of keys) {
+                const found = specs?.[key];
+
+                if (
+                    found !== undefined
+                    && found !== null
+                    && found !== ""
+                ) {
+                    return found;
+                }
+            }
+
+            return null;
+        }
+
+        function formatSpecSummary(part) {
+            const specs = part.specifications ?? {};
+            const items = [];
+
+            if (part.category === "cpu") {
+                const socket = value(specs, "socket");
+                const cores = value(specs, "cores");
+                const threads = value(specs, "threads");
+                const maxPower = value(
+                    specs,
+                    "max_power_w",
+                    "tdp_w"
+                );
+
+                if (socket) items.push(`소켓 ${socket}`);
+                if (cores) items.push(`${cores}코어`);
+                if (threads) items.push(`${threads}스레드`);
+                if (maxPower) items.push(`최대 전력 ${maxPower}W`);
+            }
+
+            if (part.category === "motherboard") {
+                const socket = value(specs, "socket");
+                const memory = value(
+                    specs,
+                    "memory_type",
+                    "ram_type"
+                );
+                const form = value(specs, "form_factor");
+                const m2 = value(specs, "m2_slots");
+
+                if (socket) items.push(`소켓 ${socket}`);
+                if (memory) items.push(memory);
+                if (form) items.push(form);
+                if (m2) items.push(`M.2 ${m2}개`);
+            }
+
+            if (part.category === "ram") {
+                const memory = value(
+                    specs,
+                    "memory_type",
+                    "ram_type"
+                );
+                const capacity = value(specs, "capacity_gb");
+                const speed = value(specs, "speed_mhz");
+
+                if (memory) items.push(memory);
+                if (capacity) items.push(`${capacity}GB`);
+                if (speed) items.push(`${speed}MHz`);
+            }
+
+            if (part.category === "gpu") {
+                const chipset = value(specs, "chipset");
+                const vram = value(specs, "vram_gb");
+                const length = value(specs, "length_mm");
+                const power = value(specs, "recommended_psu_w");
+
+                if (chipset) items.push(chipset);
+                if (vram) items.push(`VRAM ${vram}GB`);
+                if (length) items.push(`길이 ${length}mm`);
+                if (power) items.push(`권장 파워 ${power}W`);
+            }
+
+            if (part.category === "case") {
+                const width = value(specs, "width_mm");
+                const height = value(specs, "height_mm");
+                const depth = value(specs, "depth_mm");
+                const maxGpu = value(specs, "max_gpu_length_mm");
+
+                if (width && height && depth) {
+                    items.push(`${width}×${height}×${depth}mm`);
+                }
+
+                if (maxGpu) {
+                    items.push(`GPU 최대 ${maxGpu}mm`);
+                }
+            }
+
+            if (part.category === "psu") {
+                const wattage = value(specs, "wattage");
+                const efficiency = value(
+                    specs,
+                    "efficiency_rating",
+                    "efficiency"
+                );
+
+                if (wattage) items.push(`${wattage}W`);
+                if (efficiency) items.push(efficiency);
+            }
+
+            if (part.category === "storage") {
+                const type = value(specs, "storage_type");
+                const capacity = value(specs, "capacity_gb");
+                const interfaceName = value(specs, "interface");
+
+                if (type) items.push(String(type).toUpperCase());
+                if (capacity) items.push(`${capacity}GB`);
+                if (interfaceName) items.push(interfaceName);
+            }
+
+            if (part.category === "cooler") {
+                const type = value(specs, "cooler_type");
+                const maxTdp = value(specs, "max_tdp_w");
+                const radiator = value(specs, "radiator_size_mm");
+
+                if (type) {
+                    items.push(
+                        type === "liquid" ? "수랭" : "공랭"
+                    );
+                }
+
+                if (maxTdp) items.push(`냉각 한계 ${maxTdp}W`);
+                if (radiator) items.push(`라디에이터 ${radiator}mm`);
+            }
+
+            return items.join(" · ");
+        }
+
+        function clearElement(element) {
+            while (element.firstChild) {
+                element.removeChild(element.firstChild);
+            }
+        }
+
+        function renderPart(part) {
+            const row = document.createElement("div");
+            row.className = "part";
+
+            const head = document.createElement("div");
+            head.className = "part-head";
+
+            const left = document.createElement("div");
+
+            const category = document.createElement("span");
+            category.className = "part-category";
+            category.textContent = (
+                categoryNames[part.category]
+                ?? part.category
+            );
+
+            const name = document.createElement("div");
+            name.className = "part-name";
+            name.textContent = (
+                `${part.manufacturer} ${part.model_name}`
+            );
+
+            const price = document.createElement("span");
+            price.className = "part-price";
+            price.textContent = formatPrice(part.price);
+
+            left.append(category, name);
+            head.append(left, price);
+            row.appendChild(head);
+
+            const specSummary = formatSpecSummary(part);
+
+            if (specSummary) {
+                const specLine = document.createElement("div");
+                specLine.className = "spec-line";
+                specLine.textContent = specSummary;
+                row.appendChild(specLine);
+            }
+
+            const sourceUrl =
+                part.specifications?.source_url
+                ?? part.specifications?.spec_source_url;
+
+            if (sourceUrl) {
+                const sourceLink = document.createElement("a");
+                sourceLink.className = "source-link";
+                sourceLink.href = sourceUrl;
+                sourceLink.target = "_blank";
+                sourceLink.rel = "noopener noreferrer";
+                sourceLink.textContent = "원본 상품 페이지 보기";
+                row.appendChild(sourceLink);
+            }
+
+            return row;
+        }
+
+        function renderList(container, title, values, className) {
+            clearElement(container);
+
+            if (!Array.isArray(values) || values.length === 0) {
+                return;
+            }
+
+            const box = document.createElement("div");
+
+            if (className) {
+                box.className = className;
+            }
+
+            const heading = document.createElement("h3");
+            heading.textContent = title;
+
+            const list = document.createElement("ul");
+            list.className = (
+                className === "warning-box"
+                    ? "warning-list"
+                    : "check-list"
+            );
+
+            for (const item of values) {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                list.appendChild(listItem);
+            }
+
+            box.append(heading, list);
+            container.appendChild(box);
+        }
+
+        function renderDataStatus(dataStatus) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "data-status";
+
+            for (const [category, status] of Object.entries(
+                dataStatus ?? {}
+            )) {
+                const item = document.createElement("div");
+                item.className = "data-status-item";
+
+                const label = document.createElement("strong");
+                label.textContent = (
+                    dataLabels[category] ?? category
+                );
+
+                const count = document.createElement("span");
+                count.textContent = (
+                    `전체 ${status.total}개 · `
+                    + `추천 가능 ${status.ready}개`
+                );
+
+                item.append(label, count);
+                wrapper.appendChild(item);
+            }
+
+            return wrapper;
+        }
+
+
+        const equipmentCheckboxes = [
+            ...document.querySelectorAll(
+                ".equipment-checkbox"
+            )
+        ];
+
+        function getSelectedCategories() {
+            return equipmentCheckboxes
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+        }
+
+        function setSelectedCategories(categories) {
+            const selected = new Set(categories);
+
+            for (const checkbox of equipmentCheckboxes) {
+                checkbox.checked = selected.has(
+                    checkbox.value
+                );
+            }
+
+            updateDimensionState();
+        }
+
+        function updateDimensionState() {
+            const caseSelected =
+                getSelectedCategories().includes(
+                    "case"
+                );
+
+            const grid =
+                document.getElementById(
+                    "dimension-grid"
+                );
+
+            grid.classList.toggle(
+                "disabled",
+                !caseSelected
+            );
+
+            for (const id of [
+                "max-width",
+                "max-height",
+                "max-depth"
+            ]) {
+                document.getElementById(
+                    id
+                ).disabled = !caseSelected;
+            }
+        }
+
+        async function recommendBuild() {
+            const budget = getNumber("budget");
+            const purpose =
+                document.getElementById("purpose").value;
+
+            const selectedCategories =
+                getSelectedCategories();
+
+            const caseSelected =
+                selectedCategories.includes("case");
+
+            const maxWidth = (
+                caseSelected
+                    ? getNumber("max-width")
+                    : null
+            );
+
+            const maxHeight = (
+                caseSelected
+                    ? getNumber("max-height")
+                    : null
+            );
+
+            const maxDepth = (
+                caseSelected
+                    ? getNumber("max-depth")
+                    : null
+            );
+
+            const allowUsed =
+                document.getElementById("allow-used").checked;
+
+            if (selectedCategories.length === 0) {
+                alert("추천받을 장비를 하나 이상 선택하세요.");
+                return;
+            }
+
+            if (
+                !Number.isFinite(budget)
+                || budget < 10000
+            ) {
+                alert("예산은 1만 원 이상으로 입력하세요.");
+                return;
+            }
+
+            if (
+                caseSelected
+                && [maxWidth, maxHeight, maxDepth].some(
+                    current =>
+                        !Number.isFinite(current)
+                        || current <= 0
+                )
+            ) {
+                alert(
+                    "케이스를 선택했으므로 최대 크기를 "
+                    + "올바르게 입력하세요."
+                );
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = "호환 조합 계산 중...";
+
+            try {
+                const response = await fetch(
+                    "/recommendations/auto",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            budget,
+                            purpose,
+                            selected_categories:
+                                selectedCategories,
+                            max_width_mm: maxWidth,
+                            max_height_mm: maxHeight,
+                            max_depth_mm: maxDepth,
+                            allow_used: allowUsed
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.detail
+                        ?? "추천 요청에 실패했습니다."
+                    );
+                }
+
+                result.style.display = "block";
+
+                const message =
+                    document.getElementById("message");
+                const verification =
+                    document.getElementById("verification");
+                const partsContainer =
+                    document.getElementById("parts");
+                const summary =
+                    document.getElementById("summary");
+                const checks =
+                    document.getElementById("checks");
+                const warnings =
+                    document.getElementById("warnings");
+                const failureDetails =
+                    document.getElementById("failure-details");
+
+                clearElement(verification);
+                clearElement(partsContainer);
+                clearElement(summary);
+                clearElement(checks);
+                clearElement(warnings);
+                clearElement(failureDetails);
+
+                message.textContent = data.message;
+
+                if (!data.found) {
+                    message.className = "error";
+
+                    const heading = document.createElement("h3");
+                    heading.textContent = "부품 데이터 상태";
+
+                    failureDetails.append(
+                        heading,
+                        renderDataStatus(data.data_status)
+                    );
+
+                    if (
+                        Array.isArray(data.suggestions)
+                        && data.suggestions.length > 0
+                    ) {
+                        const suggestionHeading =
+                            document.createElement("h3");
+                        suggestionHeading.textContent = "해결 방법";
+
+                        const suggestionList =
+                            document.createElement("ul");
+                        suggestionList.className = "suggestion-list";
+
+                        for (const suggestion of data.suggestions) {
+                            const item = document.createElement("li");
+                            item.textContent = suggestion;
+                            suggestionList.appendChild(item);
+                        }
+
+                        failureDetails.append(
+                            suggestionHeading,
+                            suggestionList
+                        );
+                    }
+
+                    return;
+                }
+
+                message.className = "";
+
+                const badge = document.createElement("span");
+                badge.className = "status-badge";
+
+                if (data.verification_level === "verified") {
+                    badge.textContent = "주요 호환성 검증 완료";
+                } else {
+                    badge.textContent = "주요 호환성 검증 · 일부 최종 확인 필요";
+                    badge.classList.add("partial");
+                }
+
+                verification.appendChild(badge);
+
+                for (const part of data.parts) {
+                    partsContainer.appendChild(
+                        renderPart(part)
+                    );
+                }
+
+                const caseSize = data.case_dimensions ?? {};
+                const buildSummary = data.build_summary ?? {};
+
+                const total = document.createElement("strong");
+                total.textContent = (
+                    `총가격: ${formatPrice(data.total_price)}`
+                );
+
+                const summaryLines = [
+                    `남은 예산: ${formatPrice(data.remaining_budget)}`,
+                    (
+                        "선택 장비: "
+                        + data.selected_categories
+                            .map(
+                                category =>
+                                    categoryNames[category]
+                                    ?? category
+                            )
+                            .join(", ")
+                    )
+                ];
+
+                if (
+                    data.selected_categories.includes("case")
+                ) {
+                    summaryLines.push(
+                        "입력 공간: "
+                        + `${data.requested_dimensions.width_mm} × `
+                        + `${data.requested_dimensions.height_mm} × `
+                        + `${data.requested_dimensions.depth_mm}mm`
+                    );
+
+                    summaryLines.push(
+                        "케이스 크기: "
+                        + `${caseSize.width_mm} × `
+                        + `${caseSize.height_mm} × `
+                        + `${caseSize.depth_mm}mm`
+                    );
+                }
+
+                if (
+                    data.selected_categories.includes("psu")
+                ) {
+                    summaryLines.push(
+                        "파워: "
+                        + `${buildSummary.psu_wattage ?? "?"}W `
+                        + `(필요 ${buildSummary.required_psu_wattage ?? "?"}W)`
+                    );
+                }
+
+                const details = document.createElement("div");
+                details.textContent = summaryLines.join("\n");
+                details.style.whiteSpace = "pre-line";
+                details.style.marginTop = "10px";
+
+                summary.append(total, details);
+
+                renderList(
+                    checks,
+                    "호환성 검사 결과",
+                    data.compatibility_checks,
+                    ""
+                );
+
+                renderList(
+                    warnings,
+                    "최종 확인이 필요한 항목",
+                    data.warnings,
+                    "warning-box"
+                );
+
+                result.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                button.disabled = false;
+                button.textContent =
+                    "선택 장비 호환성 검사 후 추천";
+            }
+        }
+
+
+        document.getElementById(
+            "select-core"
+        ).addEventListener(
+            "click",
+            () => setSelectedCategories([
+                "cpu",
+                "motherboard",
+                "ram",
+                "gpu",
+                "case",
+                "psu"
+            ])
+        );
+
+        document.getElementById(
+            "select-all-equipment"
+        ).addEventListener(
+            "click",
+            () => setSelectedCategories([
+                "cpu",
+                "motherboard",
+                "ram",
+                "gpu",
+                "case",
+                "psu",
+                "storage",
+                "cooler"
+            ])
+        );
+
+        document.getElementById(
+            "clear-equipment"
+        ).addEventListener(
+            "click",
+            () => setSelectedCategories([])
+        );
+
+        for (const checkbox of equipmentCheckboxes) {
+            checkbox.addEventListener(
+                "change",
+                updateDimensionState
+            );
+        }
+
+        updateDimensionState();
+
+        button.addEventListener(
+            "click",
+            recommendBuild
+        );
+    </script>
+</body>
+</html>
